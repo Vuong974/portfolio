@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Văn Vượng - Portfolio Trưởng Phòng Marketing</title>
+    <meta name="description" content="Portfolio Trưởng phòng Marketing Nguyễn Văn Vượng - 7 năm kinh nghiệm thực chiến (4+ năm quản lý), chuyên sâu Quản trị Ngân sách & P&L, Paid Ads (Search, PMax, Meta), Technical SEO & GEO, Hệ thống Lark Base & Looker Studio.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 0. STICKY NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="#hero" class="brand-name">Nguyễn Văn Vượng</a>
+                <span class="brand-badge">Trưởng Phòng Marketing</span>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#nang-luc" class="nav-link">Năng Lực</a></li>
+                <li><a href="#du-an" class="nav-link">Dự Án</a></li>
+                <li><a href="#ngan-sach-kpi" class="nav-link">Ngân Sách & KPI</a></li>
+                <li><a href="#minh-chung" class="nav-link">Minh Chứng</a></li>
+                <li><a href="#cong-nghe" class="nav-link">Phương Châm</a></li>
+                <li><a href="#lien-he" class="nav-link">Liên Hệ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="deck.html" target="_blank" class="btn-nav-download" title="Xem Slide Deck 10 trang trình chiếu">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/>
+                    </svg>
+                    <span>Slide Deck</span>
+                </a>
+                <a href="assets/CV_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download class="btn-nav-download btn-nav-outline" title="Tải hồ sơ ứng tuyển PDF">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    <span>Tải CV (PDF)</span>
+                </a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                    <span>☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO & METRICS -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-avatar-box">
+                    <img src="assets/avatar.jpg" alt="Nguyễn Văn Vượng" class="hero-avatar">
+                    <div class="hero-badge-status">Sẵn sàng nhận việc</div>
+                </div>
+
+                <div class="hero-text">
+                    <h1>NGUYỄN VĂN VƯỢNG</h1>
+                    <div class="hero-role">Trưởng Phòng Marketing (Player-Coach)</div>
+                    <p class="hero-desc">
+                        7 năm kinh nghiệm thực chiến tiếp thị số (4+ năm vị trí Quản lý / Phó phòng phụ trách chung báo cáo trực tiếp Ban Giám đốc). Định hướng rõ ràng: <strong>quản trị ngân sách theo P&L (CPL trần, CIR, ROAS)</strong> và đối soát chặt chẽ chất lượng <strong>MQL ➔ SQL</strong> cùng khối Kinh doanh. Trực tiếp làm chủ kỹ thuật từ Paid Ads (Search, PMax, Meta), Technical SEO & GEO, tối ưu CRO Landing Page đến vận hành SOP trên Lark Base & Looker Studio.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="deck.html" target="_blank" class="btn btn-primary">
+                            <span>Xem Slide Deck (10 Trang)</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                            </svg>
+                        </a>
+                        <a href="assets/Portfolio_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download class="btn btn-secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            <span>Tải Portfolio (PDF)</span>
+                        </a>
+                        <a href="assets/CV_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download class="btn btn-secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            <span>Tải CV (PDF)</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-contact-inline">
+                        <div class="hero-contact-item">
+                            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                            <span>Năm sinh: 1998</span>
+                        </div>
+                        <div class="hero-contact-item">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span><strong>0868.772.540</strong></span>
+                        </div>
+                        <div class="hero-contact-item">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <span>vuongnv.upgrade@gmail.com</span>
+                        </div>
+                        <div class="hero-contact-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <span>Định Công, Hoàng Mai, Hà Nội</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- METRICS BANNER -->
+            <div class="metrics-banner">
+                <div class="metric-card">
+                    <div class="metric-number">7 Năm</div>
+                    <div class="metric-label">Kinh Nghiệm Thực Chiến</div>
+                    <div class="metric-desc">Trong đó có 4+ năm vị trí quản lý</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">350 – 400Tr</div>
+                    <div class="metric-label">Ngân Sách Phụ Trách / Tháng</div>
+                    <div class="metric-desc">Kiểm soát CPL trần, CIR & ROAS</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">5 Nhân Sự</div>
+                    <div class="metric-label">Quy Mô Đội Ngũ Phụ Trách</div>
+                    <div class="metric-desc">Ads, SEO, Content, Thiết kế</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">B2C & B2B</div>
+                    <div class="metric-label">Mô Hình Đã Trải Qua</div>
+                    <div class="metric-desc">Bán lẻ chuỗi & Dịch vụ doanh nghiệp</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. NĂNG LỰC QUẢN LÝ & THỰC THI (PLAYER-COACH) -->
+    <section class="section section-white" id="nang-luc">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Năng Lực Thực Tế</span>
+                <h2 class="section-title">Quản Lý Sát Việc & Sẵn Sàng Trực Tiếp Triển Khai</h2>
+                <p class="section-subtitle">
+                    Không quản lý theo kiểu lý thuyết xa rời thực tế. Tại các doanh nghiệp vừa và nhỏ, người quản lý phải là người hiểu sâu kỹ thuật để giao việc đúng, hướng dẫn được cấp dưới và tự giải quyết được các nút thắt chuyên môn.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Card 01 -->
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-badge">01</div>
+                        <div class="skill-card-title">Quản Trị Ngân Sách, Đội Ngũ & Báo Cáo P&L</div>
+                    </div>
+                    <div class="skill-card-body">
+                        Hoạch định ngân sách tiếp thị định lượng (CPL trần, CIR, ROAS). Trực tiếp tuyển dụng, phân chia đầu việc rõ ràng, xây dựng quy trình SOP và tính KPI/thưởng minh bạch cho 5 nhân sự trên Lark Base; quản trị chi phí và dòng tiền P&L qua Dashboard Looker Studio.
+                    </div>
+                    <div class="skill-deliverables">
+                        <div class="skill-deliv-title">Đầu ra cụ thể</div>
+                        <ul class="skill-deliv-items">
+                            <li>Bảng phân bổ ngân sách chi tiết từng kênh (CPL trần, CIR, ROAS)</li>
+                            <li>Hệ thống quy trình SOP & tính KPI/thưởng tự động trên Lark Base</li>
+                            <li>Dashboard báo cáo chi phí & P&L thời gian thực trên Looker Studio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-badge">02</div>
+                        <div class="skill-card-title">Triển Khai Paid Ads & Technical Tracking</div>
+                    </div>
+                    <div class="skill-card-body">
+                        Trực tiếp triển khai Google Ads (Search, Performance Max - PMax) & Meta Ads. Tự tay thiết lập hệ thống Technical Tracking chuyên sâu (Google Tag Manager, GA4, Meta Pixel), tối ưu chuyển đổi và kiểm soát chi phí quảng cáo hàng ngày sát sao.
+                    </div>
+                    <div class="skill-deliverables">
+                        <div class="skill-deliv-title">Đầu ra cụ thể</div>
+                        <ul class="skill-deliv-items">
+                            <li>Cấu trúc tài khoản Google Ads (Search, PMax) & Meta Ads mạch lạc</li>
+                            <li>Hệ thống Technical Tracking đo lường chuẩn xác (GTM, GA4, Events)</li>
+                            <li>Tối ưu chuyển đổi và kiểm soát chi phí trong định mức cho phép</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 03 -->
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-badge">03</div>
+                        <div class="skill-card-title">Kỹ Thuật Website, SEO & GEO (AI Search)</div>
+                    </div>
+                    <div class="skill-card-body">
+                        Tối ưu Technical SEO & GEO (Generative Engine Optimization), thúc đẩy bộ từ khóa chủ lực lên Top Google & công cụ tìm kiếm AI. Trực tiếp vận hành, nâng cấp website và tối ưu chuyển đổi Landing Page (CRO); làm việc với nhà cung cấp xử lý sự cố kỹ thuật, hosting & bảo mật.
+                    </div>
+                    <div class="skill-deliverables">
+                        <div class="skill-deliv-title">Đầu ra cụ thể</div>
+                        <ul class="skill-deliv-items">
+                            <li>Bộ từ khóa chủ lực lên Top Google và hiện diện trên AI Search (GEO)</li>
+                            <li>Hệ thống Landing Page tối ưu tỷ lệ chuyển đổi riêng từng dịch vụ (CRO)</li>
+                            <li>Vận hành website ổn định, bảo mật và tốc độ tải trang cao</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 04 -->
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-badge">04</div>
+                        <div class="skill-card-title">Phễu Nội Dung, Sự Kiện & Phối Hợp Sales (MQL ➔ SQL)</div>
+                    </div>
+                    <div class="skill-card-body">
+                        Xây dựng phễu nội dung giải quyết đúng Pain Points của khách hàng; chủ trì tổ chức chuỗi Hội thảo & Webinar thu hút khách hàng doanh nghiệp. Thiết lập nhịp đối soát chất lượng data (MQL ➔ SQL) hàng tuần cùng bộ phận Sales để điều chuyển ngân sách kịp thời vào dịch vụ dễ ký hợp đồng.
+                    </div>
+                    <div class="skill-deliverables">
+                        <div class="skill-deliv-title">Đầu ra cụ thể</div>
+                        <ul class="skill-deliv-items">
+                            <li>Phễu nội dung đa tầng & chuỗi Hội thảo/Webinar chuyên sâu</li>
+                            <li>Quy trình đối soát chất lượng MQL ➔ SQL định kỳ cùng Sales</li>
+                            <li>Điều phối ngân sách linh hoạt theo tỷ lệ ký kết hợp đồng thực tế</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. DEEP-DIVE CASE STUDIES -->
+    <section class="section" id="du-an">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kinh Nghiệm Thực Chiến</span>
+                <h2 class="section-title">Bóc Tách 2 Bài Toán Quản Trị Trọng Điểm</h2>
+                <p class="section-subtitle">
+                    Hai môi trường kinh doanh hoàn toàn khác biệt: Một bên là Dịch vụ B2B giá trị cao đòi hỏi niềm tin và phễu nuôi dưỡng; một bên là Bán lẻ Chuỗi B2C đa điểm bán cạnh tranh khốc liệt về giá và vị trí.
+                </p>
+            </div>
+
+            <!-- CASE STUDY 01: KNA CERT -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-title-box">
+                        <h3>DỰ ÁN 01: CÔNG TY TNHH CHỨNG NHẬN KNA (KNA CERT)</h3>
+                        <div class="case-sub">08/2024 – Hiện tại • <strong>Phó Phòng Marketing (Phụ trách chung bộ phận Marketing — Báo cáo trực tiếp Ban Giám đốc)</strong> • Đào tạo & Chứng nhận Quốc tế B2B (ISO, CSR, ESG...)</div>
+                    </div>
+                    <div class="case-highlight-badge">~700 B2B Leads / Tháng (90% Đúng Nhu Cầu)</div>
+                </div>
+
+                <div class="case-body">
+                    <div class="case-content">
+                        <div class="case-block">
+                            <div class="case-block-title">
+                                <span>📌</span> Bài Toán Thực Tế Ban Đầu
+                            </div>
+                            <p>
+                                Ngành chứng nhận quốc tế là mảng B2B kén khách, đối tượng ra quyết định là cấp Quản lý, Giám đốc nhà máy hoặc Chủ doanh nghiệp. Khi tìm kiếm trên Google, các từ khóa về tiêu chuẩn rất dễ lẫn giữa người đi làm/sinh viên tìm tài liệu tham khảo với doanh nghiệp có nhu cầu đánh giá thật. Nếu đấu thầu dàn trải sẽ khiến chi phí trên mỗi khách hàng (CPL) tăng vọt mà Sales không chốt được hợp đồng.
+                            </p>
+                        </div>
+
+                        <div class="case-block">
+                            <div class="case-block-title">
+                                <span>⚙️</span> Cách Trực Tiếp Giải Quyết
+                            </div>
+                            <p>
+                                <strong>1. Phân tầng từ khóa:</strong> Đưa toàn bộ nhóm từ khóa mang tính chất tra cứu, tài liệu về kênh SEO, GEO và chuỗi Hội thảo/Webinar chuyên đề định kỳ để nuôi dưỡng khách hàng miễn phí.<br>
+                                <strong>2. Tối ưu Paid Ads & CRO:</strong> Chỉ chi tiền Google Ads (Search, PMax) cho nhóm từ khóa sát nhu cầu làm chứng nhận kết hợp thiết kế Landing Page riêng từng tiêu chuẩn có câu hỏi lọc quy mô doanh nghiệp trên form.<br>
+                                <strong>3. Đối soát MQL ➔ SQL cùng Sales:</strong> Họp đối soát chất lượng data hàng tuần cùng đội Kinh doanh để điều chuyển ngân sách kịp thời vào các dịch vụ dễ ký hợp đồng.
+                            </p>
+                        </div>
+
+                        <div class="case-block">
+                            <div class="case-block-title">
+                                <span>📊</span> Kết Quả Thực Tế Đạt Được
+                            </div>
+                            <ul class="case-results-list">
+                                <li>Duy trì ổn định <strong>~700 B2B leads/tháng</strong> với tỷ lệ data đúng nhu cầu thực tế đạt <strong>90%</strong>.</li>
+                                <li>Tổ chức thành công chuỗi <strong>Hội thảo trực tiếp & Webinar trực tuyến</strong>, thu hút hàng trăm đại diện doanh nghiệp tham gia mỗi kỳ.</li>
+                                <li>Chuẩn hóa toàn bộ tiến độ công việc, duyệt nội dung và theo dõi số liệu tự động trên <strong>Lark Base</strong> và <strong>Looker Studio</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="case-visual-col">
+                        <!-- DIAGRAM PHỄU B2B -->
+                        <div class="visual-container">
+                            <div class="visual-title">
+                                <strong>Mô Hình Phân Tầng Phễu B2B KNA</strong>
+                                <span>Quy trình thực tế</span>
+                            </div>
+                            <div class="funnel-diagram">
+                                <div class="funnel-step">
+                                    <div class="funnel-step-num">01</div>
+                                    <div class="funnel-step-text">Tra cứu tài liệu ISO / Khái niệm tiêu chuẩn</div>
+                                    <div class="funnel-step-stat">SEO & GEO</div>
+                                </div>
+                                <div class="funnel-step">
+                                    <div class="funnel-step-num">02</div>
+                                    <div class="funnel-step-text">Tham vấn vướng mắc & Giải đáp cập nhật mới</div>
+                                    <div class="funnel-step-stat">Chuỗi Webinar</div>
+                                </div>
+                                <div class="funnel-step">
+                                    <div class="funnel-step-num">03</div>
+                                    <div class="funnel-step-text">Nhu cầu đánh giá & Báo giá cấp chứng nhận</div>
+                                    <div class="funnel-step-stat">Google Ads + LP</div>
+                                </div>
+                                <div class="funnel-step">
+                                    <div class="funnel-step-num">04</div>
+                                    <div class="funnel-step-text">Form lọc quy mô DN & Chuyển giao Sales đối soát</div>
+                                    <div class="funnel-step-stat">Lark Base / CRM</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KHUNG ẢNH MINH CHỨNG -->
+                        <div class="evidence-slot">
+                            <img src="assets/kna_webinar_event.jpg" alt="Hội thảo KNA Cert" class="zoomable-img" data-fallback="fallbackKna" style="display:none;" onload="this.style.display='block'; document.getElementById('fallbackKna').style.display='none';">
+                            <div class="evidence-slot-placeholder" id="fallbackKna">
+                                <div class="evidence-slot-icon">🏢</div>
+                                <div class="evidence-slot-name">Hình ảnh Hội thảo / Webinar & Landing Page KNA</div>
+                                <div class="evidence-slot-hint">Khu vực hiển thị ảnh sự kiện B2B và giao diện Landing Page dịch vụ chứng nhận</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CASE STUDY 02: LPL VIỆT NAM -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-title-box">
+                        <h3>DỰ ÁN 02: CÔNG TY TNHH LPL VIỆT NAM (THƯƠNG HIỆU LAPVIP)</h3>
+                        <div class="case-sub">10/2019 – 08/2024 (Gần 5 Năm) • Chuỗi Bán Lẻ Laptop (3 Showroom HN & TP.HCM) • <strong>Bổ nhiệm nội bộ: Chuyên viên ➔ Quản lý Marketing (01/2022)</strong></div>
+                    </div>
+                    <div class="case-highlight-badge">SEO 0 ➔ 30.000 Traffic • Doanh Số Chuỗi 5 – 6 Tỷ/Tháng</div>
+                </div>
+
+                <div class="case-body">
+                    <div class="case-content">
+                        <div class="case-block">
+                            <div class="case-block-title">
+                                <span>📌</span> Bài Toán Thực Tế Ban Đầu
+                            </div>
+                            <p>
+                                Công ty ban đầu có 1 điểm bán tại Hà Nội, sau đó mở rộng thêm showroom tại Hà Nội và chi nhánh TP. Hồ Chí Minh. Ngành bán lẻ Laptop có sự cạnh tranh cực kỳ gay gắt từ các chuỗi lớn, giá thầu quảng cáo từ khóa sản phẩm rất cao và tỷ lệ hủy đơn cao nếu chỉ chạy quảng cáo ship COD đi xa. Yêu cầu đặt ra là phải kéo được khách ghé trải nghiệm tại showroom và tạo nguồn khách tự nhiên lâu dài.
+                            </p>
+                        </div>
+
+                        <div class="case-block">
+                            <div class="case-block-title">
+                                <span>⚙️</span> Cách Trực Tiếp Giải Quyết
+                            </div>
+                            <p>
+                                <strong>1. Xây dựng kênh SEO từ số 0:</strong> Không cạnh tranh trực tiếp với từ khóa tên máy ngắn của các chuỗi lớn; thay vào đó quy hoạch ma trận bài viết tư vấn chọn máy theo ngành học, so sánh cấu hình và đánh giá chi tiết theo nhu cầu sử dụng thực tế của khách hàng.<br>
+                                <strong>2. Chạy Local Ads khoanh vùng:</strong> Cài đặt Facebook Ads và Google Ads định vị bán kính xung quanh từng cửa hàng tại Hà Nội và TP.HCM để kéo khách đến trực tiếp trải nghiệm máy tại showroom.<br>
+                                <strong>3. Tối ưu theo mùa vụ bán hàng:</strong> Phối hợp hàng ngày với quản lý cửa hàng để nắm tồn kho từng mã máy, đẩy mạnh các chương trình kích cầu lớn như Mùa tựu trường (Back-to-School) và Tết.
+                            </p>
+                        </div>
+
+                        <div class="case-block">
+                            <div class="case-block-title">
+                                <span>📊</span> Kết Quả Thực Tế Đạt Được
+                            </div>
+                            <ul class="case-results-list">
+                                <li>Phát triển lượng truy cập website tự nhiên từ <strong>con số 0 lên 30.000 Organic Traffic/tháng</strong>, giảm đáng kể phụ thuộc vào ngân sách quảng cáo.</li>
+                                <li>Đồng hành mở rộng thành công từ <strong>1 cửa hàng ban đầu lên 3 showroom</strong> tại Hà Nội và TP.HCM.</li>
+                                <li>Góp phần duy trì ổn định doanh số toàn chuỗi đạt <strong>5 – 6 tỷ VNĐ/tháng</strong>.</li>
+                                <li>Được Ban Giám đốc tin tưởng bổ nhiệm từ Chuyên viên Digital lên vị trí Quản lý phòng Marketing sau hơn 2 năm cống hiến.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="case-visual-col">
+                        <!-- BIỂU ĐỒ SEO SVG -->
+                        <div class="visual-container">
+                            <div class="visual-title">
+                                <strong>Biểu Đồ Tăng Trưởng SEO Website (LPL)</strong>
+                                <span>0 ➔ 30K Traffic/tháng</span>
+                            </div>
+                            <div class="chart-box">
+                                <svg viewBox="0 0 360 140">
+                                    <defs>
+                                        <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35"/>
+                                            <stop offset="100%" stop-color="#0284c7" stop-opacity="0.0"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Grid lines -->
+                                    <line x1="40" y1="20" x2="340" y2="20" stroke="#e2e8f0" stroke-dasharray="3,3"/>
+                                    <text x="10" y="24" font-size="10" fill="#94a3b8">30K</text>
+                                    <line x1="40" y1="60" x2="340" y2="60" stroke="#e2e8f0" stroke-dasharray="3,3"/>
+                                    <text x="10" y="64" font-size="10" fill="#94a3b8">15K</text>
+                                    <line x1="40" y1="100" x2="340" y2="100" stroke="#e2e8f0" stroke-dasharray="3,3"/>
+                                    <text x="10" y="104" font-size="10" fill="#94a3b8">0K</text>
+
+                                    <!-- Area under curve -->
+                                    <path d="M 40 100 Q 110 98 160 85 T 250 50 T 340 22 L 340 100 L 40 100 Z" fill="url(#chartGrad)"/>
+                                    <!-- Curve line -->
+                                    <path d="M 40 100 Q 110 98 160 85 T 250 50 T 340 22" fill="none" stroke="#0284c7" stroke-width="3"/>
+                                    
+                                    <!-- Dots -->
+                                    <circle cx="40" cy="100" r="4" fill="#0284c7"/>
+                                    <circle cx="160" cy="85" r="4" fill="#0284c7"/>
+                                    <circle cx="250" cy="50" r="4" fill="#0284c7"/>
+                                    <circle cx="340" cy="22" r="5" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+
+                                    <!-- Bottom labels -->
+                                    <text x="35" y="125" font-size="10" fill="#64748b">Bắt đầu</text>
+                                    <text x="145" y="125" font-size="10" fill="#64748b">Tháng 6</text>
+                                    <text x="235" y="125" font-size="10" fill="#64748b">Tháng 14</text>
+                                    <text x="315" y="125" font-size="10" fill="#0369a1" font-weight="bold">30.000/th</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- KHUNG ẢNH MINH CHỨNG -->
+                        <div class="evidence-slot">
+                            <img src="assets/seo_traffic_chart.png" alt="Biểu đồ SEO thực tế" class="zoomable-img" data-fallback="fallbackLpl" style="display:none;" onload="this.style.display='block'; document.getElementById('fallbackLpl').style.display='none';">
+                            <div class="evidence-slot-placeholder" id="fallbackLpl">
+                                <div class="evidence-slot-icon">📈</div>
+                                <div class="evidence-slot-name">Hình ảnh Google Search Console / Showroom Lapvip</div>
+                                <div class="evidence-slot-hint">Khu vực hiển thị ảnh chụp màn hình Search Console thực tế và không gian điểm bán</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MẪU BẢNG NGÂN SÁCH & TÍNH KPI (INTERACTIVE TABS) -->
+    <section class="section section-white" id="ngan-sach-kpi">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Quản Trị Bằng Con Số</span>
+                <h2 class="section-title">Mẫu Bảng Phân Bổ Ngân Sách & Khung Tính KPI</h2>
+                <p class="section-subtitle">
+                    Minh họa phương pháp lập kế hoạch thực tế cho doanh nghiệp: Không chia tiền theo cảm tính, mọi đồng chi phí đều gắn chặt với định mức chuyển đổi (CPL) và trách nhiệm chất lượng của từng nhân sự.
+                </p>
+            </div>
+
+            <div class="table-tabs-container">
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-target="tabBudget">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                        <span>Mẫu Kế Hoạch Phân Bổ Ngân Sách Tháng</span>
+                    </button>
+                    <button class="tab-btn" data-target="tabKPI">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+                        <span>Khung Giao KPI & Đánh Giá Thưởng Nhân Sự</span>
+                    </button>
+                </div>
+
+                <!-- TAB 1: BUDGET TABLE -->
+                <div class="tab-content active" id="tabBudget">
+                    <div class="tab-lead">
+                        <div>
+                            <strong>Minh họa bảng phân bổ ngân sách:</strong> Số liệu chuẩn hóa theo quy mô thực tế, đảm bảo an toàn thông tin nội bộ.
+                        </div>
+                        <div style="display:flex; gap:8px;">
+                            <button class="filter-btn active" id="btnModelB2B" style="padding:4px 12px; font-size:0.8rem;">Mô hình Dịch vụ B2B (350 Triệu)</button>
+                            <button class="filter-btn" id="btnModelB2C" style="padding:4px 12px; font-size:0.8rem;">Mô hình Bán lẻ B2C (300 Triệu)</button>
+                        </div>
+                    </div>
+
+                    <!-- B2B TABLE -->
+                    <div id="modelB2BTable" class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Kênh Triển Khai</th>
+                                    <th>Tỷ Trọng (%)</th>
+                                    <th>Ngân Sách (VNĐ)</th>
+                                    <th>Định Mức CPL</th>
+                                    <th>Sản Lượng Lead Dự Kiến</th>
+                                    <th>Trọng Tâm Giám Sát</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Google Search Ads</strong></td>
+                                    <td>50%</td>
+                                    <td>175.000.000</td>
+                                    <td>400.000 – 450.000 đ</td>
+                                    <td>~400 leads</td>
+                                    <td>Đấu thầu từ khóa ý định mua cao, loại từ khóa tài liệu</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Hội Thảo & Webinar B2B</strong></td>
+                                    <td>20%</td>
+                                    <td>70.000.000</td>
+                                    <td>300.000 – 350.000 đ</td>
+                                    <td>~220 khách tham dự</td>
+                                    <td>Phễu chuyển đổi lãnh đạo doanh nghiệp & giữ chân</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SEO & Sản Xuất Nội Dung</strong></td>
+                                    <td>15%</td>
+                                    <td>52.500.000</td>
+                                    <td>Chi phí cố định</td>
+                                    <td>Tạo nguồn khách tự nhiên</td>
+                                    <td>Outline bài chuẩn SEO, tối ưu thứ hạng từ khóa chủ lực</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Facebook / Retargeting</strong></td>
+                                    <td>10%</td>
+                                    <td>35.000.000</td>
+                                    <td>350.000 – 400.000 đ</td>
+                                    <td>~90 leads</td>
+                                    <td>Nhắc nhớ tệp đã ghé Landing Page nhưng chưa đăng ký</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dự Phòng & Công Cụ (Tools)</strong></td>
+                                    <td>5%</td>
+                                    <td>17.500.000</td>
+                                    <td>Chi phí hệ thống</td>
+                                    <td>Đo lường & Vận hành</td>
+                                    <td>Semrush, Hosting/Domain, Lark Suite, Google Antigravity & AI Tools</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>TỔNG CỘNG THÁNG</td>
+                                    <td>100%</td>
+                                    <td>350.000.000 VNĐ</td>
+                                    <td>Trung bình ~430.000 đ</td>
+                                    <td>~700 B2B Leads</td>
+                                    <td>Tỷ lệ data đúng nhu cầu thực tế cam kết ≥ 90%</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <!-- B2C TABLE (Hidden by default, toggled via JS) -->
+                    <div id="modelB2CTable" class="table-responsive" style="display:none;">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Hạng Mục Bán Lẻ</th>
+                                    <th>Tỷ Trọng (%)</th>
+                                    <th>Ngân Sách (VNĐ)</th>
+                                    <th>Chỉ Số Mục Tiêu</th>
+                                    <th>Kết Quả Dự Kiến</th>
+                                    <th>Trọng Tâm Giám Sát</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Facebook Ads (Local Bán Kính)</strong></td>
+                                    <td>45%</td>
+                                    <td>135.000.000</td>
+                                    <td>Chi phí / Tin nhắn hỏi máy</td>
+                                    <td>~3.500 tin nhắn</td>
+                                    <td>Bán kính 5-7km quanh showroom HN & TP.HCM</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Google Ads (Search & Shopping)</strong></td>
+                                    <td>25%</td>
+                                    <td>75.000.000</td>
+                                    <td>Chi phí / Lượt click mua máy</td>
+                                    <td>Tăng tỷ lệ ghé web</td>
+                                    <td>Nhóm sản phẩm laptop văn phòng & đồ họa bán chạy</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SEO Website & Review Bài Viết</strong></td>
+                                    <td>15%</td>
+                                    <td>45.000.000</td>
+                                    <td>Organic Traffic hàng tháng</td>
+                                    <td>Duy trì 25K - 30K traffic</td>
+                                    <td>Ma trận bài so sánh cấu hình & tư vấn mua máy thật</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kích Cầu Điểm Bán & Sự Kiện</strong></td>
+                                    <td>10%</td>
+                                    <td>30.000.000</td>
+                                    <td>Lượng khách ghé Showroom</td>
+                                    <td>Đạt chỉ tiêu mùa vụ</td>
+                                    <td>Chương trình Back-to-School, phụ kiện tặng kèm</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dự Phòng & Công Cụ Đo Lường</strong></td>
+                                    <td>5%</td>
+                                    <td>15.000.000</td>
+                                    <td>Chi phí công cụ vận hành</td>
+                                    <td>Hệ thống ổn định</td>
+                                    <td>Phần mềm POS/Bán hàng, mã theo dõi GTM, Pixel</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>TỔNG CỘNG THÁNG</td>
+                                    <td>100%</td>
+                                    <td>300.000.000 VNĐ</td>
+                                    <td>Đóng góp doanh số</td>
+                                    <td>Toàn chuỗi 5 – 6 Tỷ VNĐ</td>
+                                    <td>3 Showroom tại Hà Nội & TP. Hồ Chí Minh</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="table-note">
+                        💡 <strong>Nguyên tắc quản trị:</strong> Bảng ngân sách không phải con số cố định chết cứng. Hàng tuần, Trưởng phòng trực tiếp đối soát số liệu thực chi và tỷ lệ chốt của Sales; kênh nào hiệu quả vượt định mức sẽ được ưu tiên điều chuyển ngân sách để tối đa hóa doanh thu thực mang về.
+                    </div>
+                </div>
+
+                <!-- TAB 2: KPI TABLE -->
+                <div class="tab-content" id="tabKPI">
+                    <div class="tab-lead">
+                        <div>
+                            <strong>Khung đánh giá hiệu suất đội ngũ 5 nhân sự:</strong> Gắn chặt trách nhiệm của từng vị trí với đầu ra thực chất và phản hồi từ khối Kinh doanh.
+                        </div>
+                        <span class="tab-lead-badge">Đánh giá theo tháng • Thưởng minh bạch</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Vị Trí Phụ Trách</th>
+                                    <th>Nhiệm Vụ Trọng Tâm</th>
+                                    <th>Chỉ Số KPI Định Lượng</th>
+                                    <th>Cơ Chế Tính Thưởng & Đảm Bảo Chất Lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Chuyên viên Paid Ads</strong></td>
+                                    <td>Cài đặt, thử nghiệm mẫu quảng cáo, tối ưu chi phí Ads hàng ngày</td>
+                                    <td>Sản lượng lead & Chi phí/lead (CPL) nằm trong ngưỡng định mức</td>
+                                    <td><strong>Trừ điểm nếu lead ảo/lệch tệp;</strong> thưởng thêm khi % lead được Sales xác nhận đúng nhu cầu đạt trên 90%.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chuyên viên SEO</strong></td>
+                                    <td>Nghiên cứu từ khóa, tối ưu Onpage/Technical, đẩy Top Google</td>
+                                    <td>Lượng Organic Traffic tăng trưởng & Số từ khóa chủ lực vào Top 5</td>
+                                    <td>Thưởng theo số lượng lead tự nhiên phát sinh từ website; không chạy theo các từ khóa có traffic nhưng không có nhu cầu mua.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chuyên viên Content (02 Nhân sự)</strong></td>
+                                    <td>Sản xuất bài viết chuẩn SEO/GEO, kịch bản video, nội dung mẫu quảng cáo & tài liệu Webinar</td>
+                                    <td>Đúng tiến độ bài viết chuyên môn, tỷ lệ giữ chân (Time on page), chuyển đổi nội dung</td>
+                                    <td>Thưởng khi bài viết kéo được khách đăng ký hoặc kịch bản quảng cáo đạt tỷ lệ tương tác và chuyển đổi cao vượt trội.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chuyên viên Thiết Kế & Media</strong></td>
+                                    <td>Banner quảng cáo, ấn phẩm sự kiện/Webinar, hình ảnh truyền thông & hỗ trợ quay dựng showroom</td>
+                                    <td>Đúng hạn bàn giao ấn phẩm, tỷ lệ CTR hình ảnh thử nghiệm Ads, chất lượng video</td>
+                                    <td>Thưởng theo các bộ ấn phẩm hoặc banner mang lại tỷ lệ nhấp chuột (CTR) cao nhất trong các đợt A/B testing hàng tuần.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kỹ Thuật Web, CRO & Tracking</strong><br><small style="color:#0284c7;">*(Trưởng phòng trực tiếp lead & chuyển giao)*</small></td>
+                                    <td>Thiết kế bố cục Landing Page chuyển đổi (CRO), tối ưu tốc độ tải trang, thiết lập GTM/GA4/Pixel & kết nối API</td>
+                                    <td>Tốc độ tải trang &lt; 2.5s, tỷ lệ chuyển đổi form (CR), hệ thống tracking hoạt động 100% không lỗi</td>
+                                    <td>Tối ưu chi phí kỹ thuật bên ngoài, nâng cao tỷ lệ chuyển đổi form đăng ký tăng thêm từ 15% trở lên so với trang cũ.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-note">
+                        ⚖️ <strong>Cơ chế thưởng minh bạch:</strong> Quản lý không chấm điểm cảm tính theo "độ chăm chỉ" hay "số giờ ngồi văn phòng". Kết quả được tính toán tự động qua hệ thống theo dõi (Lark Base / Sheets) và bảng đối soát của Sales để tạo động lực thực chất cho anh em nhân sự.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. THƯ VIỆN MINH CHỨNG & HỆ THỐNG QUẢN TRỊ -->
+    <section class="section" id="minh-chung">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Minh Chứng Thực Tế</span>
+                <h2 class="section-title">Hệ Thống Quản Trị & Bằng Chứng Triển Khai</h2>
+                <p class="section-subtitle">
+                    Hệ thống vận hành số hóa, đo lường tự động và các minh chứng hình ảnh thực tế từ các dự án đã phụ trách.
+                </p>
+            </div>
+
+            <!-- FILTER BUTTONS -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Tất Cả</button>
+                <button class="filter-btn" data-filter="management">Quản Trị & Báo Cáo</button>
+                <button class="filter-btn" data-filter="seo-ads">Hiệu Quả SEO & Ads</button>
+                <button class="filter-btn" data-filter="events">Sự Kiện & Điểm Bán</button>
+            </div>
+
+            <!-- GALLERY GRID -->
+            <div class="gallery-grid">
+                <!-- CARD 1: LARK BASE -->
+                <div class="gallery-card" data-category="management">
+                    <div class="gallery-card-preview">
+                        <!-- MOCKUP UI LARK BASE -->
+                        <div class="lark-mockup">
+                            <div class="lark-mockup-header">
+                                <span>📋 Lark Base: Bảng Quản Trị Marketing</span>
+                                <span style="color:#10b981;">● Online</span>
+                            </div>
+                            <div class="lark-mockup-row" style="font-weight:700; color:#64748b;">
+                                <div>Chiến dịch</div>
+                                <div>Kênh</div>
+                                <div>Ngân sách</div>
+                                <div>Trạng thái</div>
+                            </div>
+                            <div class="lark-mockup-row">
+                                <div>Google Ads ISO 9001</div>
+                                <div class="lark-tag">Google</div>
+                                <div>45.000.000</div>
+                                <div style="color:#10b981; font-weight:700;">Đang chạy</div>
+                            </div>
+                            <div class="lark-mockup-row">
+                                <div>Webinar Cập nhật ESG</div>
+                                <div class="lark-tag">Webinar</div>
+                                <div>20.000.000</div>
+                                <div style="color:#0284c7; font-weight:700;">Hoàn thành</div>
+                            </div>
+                            <div class="lark-mockup-row">
+                                <div>SEO Cụm từ khóa CSR</div>
+                                <div class="lark-tag">SEO</div>
+                                <div>15.000.000</div>
+                                <div style="color:#f59e0b; font-weight:700;">Đang duyệt</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-card-info">
+                        <span class="gallery-tag">Quản Trị & Tự Động Hóa</span>
+                        <div class="gallery-title">Bảng Quản Trị Tiến Độ & Chiến Dịch (Lark Base)</div>
+                        <div class="gallery-desc">
+                            Tự thiết lập luồng giao việc, duyệt nội dung và theo dõi chi phí thực chi so với ngân sách dự kiến qua Lark Base và tích hợp Lark Open API.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: LOOKER STUDIO -->
+                <div class="gallery-card" data-category="management">
+                    <div class="gallery-card-preview">
+                        <!-- MOCKUP LOOKER STUDIO -->
+                        <div class="looker-mockup">
+                            <div class="looker-metric-chip">
+                                <div class="looker-metric-val">~700</div>
+                                <div class="looker-metric-lbl">LEADS B2B / THÁNG</div>
+                            </div>
+                            <div class="looker-metric-chip">
+                                <div class="looker-metric-val">90.2%</div>
+                                <div class="looker-metric-lbl">TỶ LỆ ĐÚNG TỆP (SALES)</div>
+                            </div>
+                            <div class="looker-metric-chip">
+                                <div class="looker-metric-val">430K</div>
+                                <div class="looker-metric-lbl">CPL TRUNG BÌNH</div>
+                            </div>
+                            <div class="looker-metric-chip">
+                                <div class="looker-metric-val">-18%</div>
+                                <div class="looker-metric-lbl">TỐI ƯU CHI PHÍ/LEAD</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-card-info">
+                        <span class="gallery-tag">Báo Cáo Thời Gian Thực</span>
+                        <div class="gallery-title">Dashboard Đo Lường Hiệu Suất (Looker Studio)</div>
+                        <div class="gallery-desc">
+                            Hệ thống báo cáo tự động kết nối dữ liệu quảng cáo và chuyển đổi giúp Ban Giám đốc nắm rõ tức thì chi phí trên mỗi khách hàng tiềm năng.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: SEO TRAFFIC GSC -->
+                <div class="gallery-card" data-category="seo-ads">
+                    <div class="gallery-card-preview">
+                        <img src="assets/seo_traffic_chart.png" alt="Kết quả SEO" class="zoomable-img" data-fallback="fbGsc" style="display:none;" onload="this.style.display='block'; document.getElementById('fbGsc').style.display='none';">
+                        <div class="evidence-slot-placeholder" id="fbGsc">
+                            <div class="evidence-slot-icon">📈</div>
+                            <div class="evidence-slot-name">Google Search Console: 30K Traffic</div>
+                            <div class="evidence-slot-hint">Tăng trưởng từ 0 lên 30.000 lượt truy cập tự nhiên/tháng</div>
+                        </div>
+                    </div>
+                    <div class="gallery-card-info">
+                        <span class="gallery-tag">SEO & Organic Traffic</span>
+                        <div class="gallery-title">Phát Triển Kênh SEO Từ Con Số 0 (LPL Việt Nam)</div>
+                        <div class="gallery-desc">
+                            Đưa hàng chục nhóm từ khóa tư vấn cấu hình và nhu cầu mua máy thực tế lên Top đầu Google, tạo nguồn khách ổn định và bền vững cho chuỗi bán lẻ.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4: PAID ADS GOOGLE & FB -->
+                <div class="gallery-card" data-category="seo-ads">
+                    <div class="gallery-card-preview">
+                        <img src="assets/google_ads_report.png" alt="Google Ads Report" class="zoomable-img" data-fallback="fbAds" style="display:none;" onload="this.style.display='block'; document.getElementById('fbAds').style.display='none';">
+                        <div class="evidence-slot-placeholder" id="fbAds">
+                            <div class="evidence-slot-icon">🎯</div>
+                            <div class="evidence-slot-name">Trình Quản Lý Quảng Cáo (Google / Meta)</div>
+                            <div class="evidence-slot-hint">Kiểm soát chặt chẽ giá thầu CPC và chi phí/chuyển đổi</div>
+                        </div>
+                    </div>
+                    <div class="gallery-card-info">
+                        <span class="gallery-tag">Tối Ưu Paid Ads</span>
+                        <div class="gallery-title">Quản Lý Ngân Sách & Tối Ưu Chiến Dịch Thực Chiến</div>
+                        <div class="gallery-desc">
+                            Trực tiếp phân nhóm từ khóa, thử nghiệm mẫu nội dung và kiểm soát chi phí hàng ngày trên Google Ads, Facebook Ads.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 5: WEBINAR / SEMINAR B2B -->
+                <div class="gallery-card" data-category="events">
+                    <div class="gallery-card-preview">
+                        <img src="assets/kna_webinar_event.jpg" alt="Webinar KNA" class="zoomable-img" data-fallback="fbSemi" style="display:none;" onload="this.style.display='block'; document.getElementById('fbSemi').style.display='none';">
+                        <div class="evidence-slot-placeholder" id="fbSemi">
+                            <div class="evidence-slot-icon">🎤</div>
+                            <div class="evidence-slot-name">Chuỗi Hội Thảo & Webinar B2B (KNA)</div>
+                            <div class="evidence-slot-hint">Thu hút cấp lãnh đạo, quản lý nhà máy tham gia</div>
+                        </div>
+                    </div>
+                    <div class="gallery-card-info">
+                        <span class="gallery-tag">Sự Kiện & Phễu Chuyển Đổi</span>
+                        <div class="gallery-title">Chủ Trì Tổ Chức Chuỗi Hội Thảo & Webinar B2B</div>
+                        <div class="gallery-desc">
+                            Lên chủ đề, điều phối truyền thông đa kênh và tổ chức các buổi hội thảo trực tiếp lẫn trực tuyến giải đáp tiêu chuẩn mới cho doanh nghiệp.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 6: SHOWROOM & LOCAL ADS -->
+                <div class="gallery-card" data-category="events">
+                    <div class="gallery-card-preview">
+                        <img src="assets/lpl_showroom.jpg" alt="Showroom Lapvip" class="zoomable-img" data-fallback="fbShow" style="display:none;" onload="this.style.display='block'; document.getElementById('fbShow').style.display='none';">
+                        <div class="evidence-slot-placeholder" id="fbShow">
+                            <div class="evidence-slot-icon">🏪</div>
+                            <div class="evidence-slot-name">Hệ Thống 3 Showroom Bán Lẻ (LPL)</div>
+                            <div class="evidence-slot-hint">Khai trương và đẩy mạnh tiếp thị điểm bán tại HN & TP.HCM</div>
+                        </div>
+                    </div>
+                    <div class="gallery-card-info">
+                        <span class="gallery-tag">Bán Lẻ Chuỗi & Điểm Bán</span>
+                        <div class="gallery-title">Đồng Hành Mở Rộng Chuỗi Showroom 3 Chi Nhánh</div>
+                        <div class="gallery-desc">
+                            Triển khai chiến dịch truyền thông khai trương kết hợp Local Ads bán kính, góp phần duy trì doanh số toàn chuỗi đạt 5 – 6 tỷ VNĐ/tháng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. NỀN TẢNG CÔNG NGHỆ & PHƯƠNG CHÂM LÀM VIỆC -->
+    <section class="section section-white" id="cong-nghe">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nền Tảng & Tác Phong</span>
+                <h2 class="section-title">Lợi Thế Công Nghệ & Phương Châm Làm Việc</h2>
+                <p class="section-subtitle">
+                    Sự kết hợp giữa tư duy cấu trúc công nghệ thông tin và kinh nghiệm quản trị tiếp thị thực chiến.
+                </p>
+            </div>
+
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">💻</div>
+                    <div class="philosophy-title">Nền Tảng Công Nghệ (FPT Polytechnic)</div>
+                    <div class="philosophy-text">
+                        Tốt nghiệp chuyên ngành <strong>Ứng dụng Phần mềm</strong> tại Cao đẳng FPT Polytechnic (2016 – 2019); hoàn thành chứng chỉ chuyên môn <strong>Project Management</strong> (Quản lý dự án & Quản trị nhân sự - 12/2023) và <strong>Authentic Branding</strong> (Xây dựng thương hiệu - 11/2023) tại GIGAN Training Center. Nền tảng lập trình và hiểu biết sâu về cấu trúc website, mã nguồn và cơ sở dữ liệu được ứng dụng trực tiếp và hiệu quả khi làm <strong>Technical SEO</strong>, thiết lập hệ thống đo lường nâng cao (GTM, GA4, Custom Events), tích hợp Lark Open API và ứng dụng các công cụ AI (Claude, ChatGPT, Gemini) vào chuẩn hóa quy trình biên tập tài liệu và báo cáo tự động.
+                    </div>
+                </div>
+
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">🤝</div>
+                    <div class="philosophy-title">Phương Châm & Tác Phong Làm Việc</div>
+                    <div class="philosophy-text">
+                        <strong>Quản trị bằng mục tiêu và con số minh bạch:</strong> Đề cao tính kỷ luật trong quy trình và sự phối hợp thực chất giữa Marketing với Kinh doanh để hướng tới doanh thu thực tế.<br><br>
+                        <strong>Tác phong thẳng thắn, luôn sẵn sàng trực tiếp bắt tay tháo gỡ bài toán khó cùng đội ngũ:</strong> Không nói lý thuyết sáo rỗng; đồng hành cùng anh em từ định hướng chiến lược đến xử lý tận gốc từng nút thắt kỹ thuật và dữ liệu.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER & LIÊN HỆ -->
+    <footer class="footer" id="lien-he">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h3>NGUYỄN VĂN VƯỢNG</h3>
+                    <div class="footer-role">Trưởng Phòng Marketing (B2B & B2C Chuỗi)</div>
+                    <p class="footer-bio">
+                        Sẵn sàng mang kinh nghiệm thực chiến 7 năm (4+ năm quản lý), tư duy phân bổ ngân sách bài bản và năng lực trực tiếp triển khai đa kênh để đồng hành cùng sự phát triển bền vững của Quý Doanh nghiệp.
+                    </p>
+                    <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+                        <a href="assets/Portfolio_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download class="btn btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            <span>Tải Slide Portfolio (PDF)</span>
+                        </a>
+                        <a href="assets/CV_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download class="btn btn-secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            <span>Tải Bản CV (PDF)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-contact-box">
+                    <div class="footer-contact-title">Thông Tin Liên Hệ Nhanh</div>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <div>Điện thoại / Zalo: <a href="tel:0868772540"><strong>0868.772.540</strong></a></div>
+                        </li>
+                        <li>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <div>Email: <a href="mailto:vuongnv.upgrade@gmail.com">vuongnv.upgrade@gmail.com</a></div>
+                        </li>
+                        <li>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <div>Địa chỉ: Định Công, Hoàng Mai, Hà Nội</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 Nguyễn Văn Vượng • Hồ sơ Năng lực Trưởng phòng Marketing</div>
+                <div>Được thiết kế tối ưu hiển thị trên mọi thiết bị (Responsive HTML5 & CSS3)</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Đóng">&times;</button>
+            <img src="" alt="Chi tiết hình ảnh minh chứng" id="lightboxImg">
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>

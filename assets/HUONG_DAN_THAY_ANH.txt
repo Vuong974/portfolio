@@ -1,0 +1,20 @@
+HƯỚNG DẪN THAY ẢNH MINH CHỨNG THỰC TẾ CHO PORTFOLIO
+=====================================================
+Trang web Portfolio đã được thiết kế sẵn để tự động nhận diện ảnh chụp màn hình thực tế của anh.
+Khi anh có ảnh chụp thực tế, chỉ cần đổi tên ảnh và dán (paste) vào thư mục này:
+
+1. Báo cáo & Quản lý:
+   - lark_base_sample.png   : Ảnh chụp bảng quản lý tiến độ / chiến dịch trên Lark Base
+   - looker_report.png      : Ảnh chụp Dashboard báo cáo số liệu trên Looker Studio
+
+2. SEO & Hiệu quả tìm kiếm:
+   - seo_traffic_chart.png  : Ảnh biểu đồ Google Search Console / Ahrefs đạt 30.000 traffic
+   - google_ads_report.png  : Ảnh chụp chiến dịch Google Ads hoặc Facebook Ads
+
+3. Sự kiện & Hình ảnh thực tế:
+   - kna_webinar_event.jpg  : Ảnh buổi Hội thảo / Webinar chuyên ngành B2B (KNA Cert)
+   - lpl_showroom.jpg       : Ảnh điểm bán / showroom bán lẻ Laptop (LPL Việt Nam)
+   - landing_page_demo.png  : Ảnh chụp giao diện Landing Page chuyển đổi cao
+
+* Lưu ý: Nếu chưa có file ảnh nào ở trên, trang web vẫn hiển thị biểu đồ và giao diện mô phỏng
+chuyên nghiệp, không bị lỗi hiển thị hay để ô trống.
