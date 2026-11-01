@@ -149,11 +149,15 @@ document.addEventListener('DOMContentLoaded', function () {
 // 5. LIGHTBOX MODAL
     const lightboxModal = document.getElementById('lightboxModal');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
     const lightboxClose = document.getElementById('lightboxClose');
 
-    function openLightbox(src) {
+    function openLightbox(src, captionText) {
         if (lightboxModal && lightboxImg && src) {
             lightboxImg.src = src;
+            if (lightboxCaption) {
+                lightboxCaption.textContent = captionText || '';
+            }
             lightboxModal.classList.add('active');
         }
     }
@@ -182,10 +186,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Attach click event to all zoomable images
+    // Attach click event to all zoomable images & project proof buttons
     document.querySelectorAll('.zoomable-img').forEach(img => {
         img.addEventListener('click', function () {
-            openLightbox(this.src);
+            openLightbox(this.src, this.getAttribute('data-caption') || this.alt);
+        });
+    });
+
+    document.querySelectorAll('.proj-proof-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const src = this.getAttribute('data-lightbox-src');
+            const cap = this.getAttribute('data-lightbox-caption');
+            openLightbox(src, cap);
         });
     });
 

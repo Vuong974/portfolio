@@ -2098,3 +2098,83 @@ a:hover {
 .proj-metric-chip strong {
     color: var(--primary);
 }
+
+/* ==========================================================================
+   REAL LARK BASE SCREENSHOT GALLERY & PROJECT PROOF BUTTONS
+   ========================================================================== */
+.project-proof-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.proj-proof-btn {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    color: #0369a1;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+
+.proj-proof-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.gallery-card-preview.real-shot {
+    height: 215px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: zoom-in;
+}
+
+.gallery-card-preview.real-shot img {
+    object-fit: cover;
+    object-position: top left;
+}
+
+.zoom-hint-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.78);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 9px;
+    border-radius: 14px;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+.lightbox-content {
+    max-width: 94vw;
+    max-height: 92vh;
+    text-align: center;
+}
+
+.lightbox-content img {
+    max-width: 94vw;
+    max-height: 82vh;
+    background: #ffffff;
+}
+
+.lightbox-caption {
+    margin-top: 10px;
+    color: #e2e8f0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-align: center;
+}
+
