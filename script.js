@@ -123,7 +123,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 5. LIGHTBOX MODAL
+        // 3.5. PROJECT CATEGORY FILTER
+    const projFilterBtns = document.querySelectorAll('.project-filters .proj-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (projFilterBtns.length > 0 && projectCards.length > 0) {
+        projFilterBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                projFilterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    const cat = card.getAttribute('data-category');
+                    if (filter === 'all' || cat === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+// 5. LIGHTBOX MODAL
     const lightboxModal = document.getElementById('lightboxModal');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
