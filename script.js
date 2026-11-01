@@ -28,22 +28,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 2. SCROLLSPY - ACTIVE NAVBAR LINK
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id], footer[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 
     window.addEventListener('scroll', () => {
         let current = '';
         const scrollY = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
 
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            const sectionId = section.getAttribute('id');
+        // Check if reached bottom of page -> activate contact
+        if (scrollY + windowHeight >= docHeight - 60) {
+            current = 'lien-he';
+        } else {
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 120;
+                const sectionId = section.getAttribute('id');
 
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                current = sectionId;
-            }
-        });
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = sectionId;
+                }
+            });
+        }
 
         navLinks.forEach(link => {
             link.classList.remove('active');

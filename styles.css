@@ -1445,3 +1445,385 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ==========================================================================
+   EXECUTIVE 3-TIER MODULAR CASE STUDY LAYOUT
+   ========================================================================== */
+.case-inner {
+    padding: 26px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* Tầng 1: Dải 4 Thẻ Metrics Ngang */
+.case-metrics-banner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.case-metric-card {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    border-top: 3.5px solid var(--primary);
+    transition: var(--transition);
+}
+
+.case-metric-card:hover {
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.1);
+    transform: translateY(-2px);
+}
+
+.case-metric-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    line-height: 1.15;
+}
+
+.case-metric-lbl {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #0f172a;
+    letter-spacing: 0.3px;
+    margin-top: 5px;
+}
+
+.case-metric-desc {
+    font-size: 0.79rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-top: 4px;
+}
+
+/* Tầng 2: Grid 2 Cột Cân Đối (Insight vs Sơ đồ trực quan) */
+.case-grid-balanced {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: stretch;
+}
+
+.case-insight-card, .case-visual-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-card-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.icon-circle {
+    font-size: 1.1rem;
+}
+
+.case-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--text-main);
+}
+
+.insight-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.insight-label {
+    font-weight: 700;
+    color: #0284c7;
+    font-size: 0.79rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Tầng 3: 3 Cột Mốc Chiến Lược Ngang */
+.case-milestones-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-dark);
+}
+
+.case-milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.milestone-card {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.milestone-card:hover {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.milestone-badge {
+    align-self: flex-start;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: #e0f2fe;
+    color: #0284c7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.milestone-title {
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 8px;
+}
+
+.milestone-body {
+    font-size: 0.81rem;
+    color: #475569;
+    line-height: 1.55;
+}
+
+/* Tầng 4: Thanh Retention / Vòng Đời Khách Hàng */
+.case-retention-strip {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #10b981;
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.84rem;
+    color: #166534;
+    line-height: 1.5;
+}
+
+.retention-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   SECTION 5.5: LỘ TRÌNH 30 - 60 - 90 NGÀY
+   ========================================================================== */
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 26px;
+}
+
+.roadmap-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.roadmap-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--hover-shadow);
+}
+
+.roadmap-card.phase-1 { border-top: 4px solid #38bdf8; }
+.roadmap-card.phase-2 { border-top: 4px solid #10b981; }
+.roadmap-card.phase-3 { border-top: 4px solid #f59e0b; }
+
+.roadmap-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    align-self: flex-start;
+}
+
+.roadmap-card.phase-1 .roadmap-badge { background: #e0f2fe; color: #0284c7; }
+.roadmap-card.phase-2 .roadmap-badge { background: #dcfce7; color: #16a34a; }
+.roadmap-card.phase-3 .roadmap-badge { background: #fef3c7; color: #d97706; }
+
+.roadmap-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 14px;
+    line-height: 1.3;
+}
+
+.roadmap-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.84rem;
+    color: var(--text-main);
+    line-height: 1.55;
+}
+
+.roadmap-list li {
+    position: relative;
+    padding-left: 18px;
+}
+
+.roadmap-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.roadmap-commit {
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: var(--radius-sm);
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.roadmap-commit strong {
+    color: var(--accent);
+}
+
+/* ==========================================================================
+   UI MOCKUPS FOR SECTION 5 (PROOF GALLERY)
+   ========================================================================== */
+.gsc-mockup {
+    width: 90%;
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.gsc-mockup-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 5px;
+    margin-bottom: 6px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.gsc-chips {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.gsc-chip {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 5px;
+    text-align: center;
+}
+
+.gsc-chip-val {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0284c7;
+}
+
+.gsc-chip-lbl {
+    font-size: 0.58rem;
+    color: #64748b;
+    font-weight: 700;
+}
+
+.ads-mockup {
+    width: 90%;
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    font-size: 0.65rem;
+}
+
+.ads-mockup-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    font-weight: 800;
+    color: #0284c7;
+}
+
+.ads-mockup-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4px;
+    padding: 3px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+}
+
+.zalo-pill {
+    background: #0068ff;
+    color: #ffffff !important;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.zalo-pill:hover {
+    background: #0052cc;
+}
