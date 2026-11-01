@@ -1398,3 +1398,50 @@ a:hover {
         font-size: 0.85rem;
     }
 }
+
+/* P&L Metrics Grid in Case Study */
+.pl-metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+.pl-metric-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    border-left: 3.5px solid var(--primary);
+    transition: var(--transition);
+}
+.pl-metric-card:hover {
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+    transform: translateY(-2px);
+}
+.pl-metric-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+}
+.pl-metric-lbl {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 4px;
+}
+.pl-metric-desc {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-top: 5px;
+}
+
+@media (max-width: 640px) {
+    .pl-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+}
