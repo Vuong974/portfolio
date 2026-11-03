@@ -1929,11 +1929,65 @@ a:hover {
 }
 
 .company-name {
-    font-size: 1.12rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: var(--text-heading);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     line-height: 1.3;
+}
+
+.company-role-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.company-time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0284c7;
+    background: #e0f2fe;
+    border: 1px solid #bae6fd;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.company-time-badge svg {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+}
+
+.company-time-badge.green {
+    color: #15803d;
+    background: #dcfce7;
+    border-color: #bbf7d0;
+}
+
+.company-role-info {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.company-role-title {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.2px;
+}
+
+.company-role-note {
+    font-size: 0.84rem;
+    color: #475569;
+    font-weight: 500;
 }
 
 .company-role {
