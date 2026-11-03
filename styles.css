@@ -12,9 +12,9 @@
     --accent: #38bdf8;
     --dark: #0f172a;
     --dark-surface: #1e293b;
-    --text-main: #334155;
+    --text-main: #0f172a;
     --text-heading: #0f172a;
-    --text-muted: #64748b;
+    --text-muted: #334155;
     --bg-light: #f8fafc;
     --bg-white: #ffffff;
     --border-color: #e2e8f0;
@@ -44,6 +44,8 @@ body {
     background-color: var(--bg-light);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -121,8 +123,8 @@ a:hover {
 }
 
 .nav-link {
-    color: #cbd5e1;
-    font-size: 0.86rem;
+    color: #e2e8f0;
+    font-size: 0.88rem;
     font-weight: 600;
     transition: var(--transition);
     white-space: nowrap;
@@ -299,7 +301,7 @@ a:hover {
 }
 
 .section-dark .section-subtitle {
-    color: #94a3b8;
+    color: #cbd5e1;
 }
 
 /* ==========================================================================
@@ -390,7 +392,7 @@ a:hover {
 
 .hero-desc {
     font-size: 1.02rem;
-    color: #cbd5e1;
+    color: #f1f5f9;
     line-height: 1.65;
     margin-bottom: 24px;
     max-width: 820px;
@@ -410,7 +412,7 @@ a:hover {
     position: relative;
     padding-left: 20px;
     font-size: 0.98rem;
-    color: #cbd5e1;
+    color: #f1f5f9;
     line-height: 1.6;
 }
 
@@ -580,8 +582,9 @@ a:hover {
 }
 
 .skill-deliv-items {
-    font-size: 0.82rem;
-    color: #475569;
+    font-size: 0.85rem;
+    color: #1e293b;
+    font-weight: 500;
     list-style: none;
 }
 
@@ -1265,7 +1268,8 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #cbd5e1;
+    color: #f1f5f9;
+    font-size: 0.92rem;
 }
 
 .footer-contact-list a {
@@ -2040,9 +2044,10 @@ a:hover {
 .company-scope {
     margin-bottom: 10px;
     padding-bottom: 8px;
-    border-bottom: 1px dashed #e2e8f0;
-    color: #475569;
-    font-size: 0.86rem;
+    border-bottom: 1px dashed #cbd5e1;
+    color: #1e293b;
+    font-size: 0.88rem;
+    font-weight: 600;
 }
 
 .company-tasks-list {
@@ -2057,8 +2062,9 @@ a:hover {
 .company-tasks-list li {
     position: relative;
     padding-left: 18px;
-    line-height: 1.55;
-    color: #334155;
+    line-height: 1.6;
+    color: #0f172a;
+    font-size: 0.88rem;
 }
 
 .company-tasks-list li::before {
@@ -2116,10 +2122,10 @@ a:hover {
     gap: 8px;
     background: transparent;
     border: 1px solid transparent;
-    color: #475569;
+    color: #1e293b;
     padding: 7px 16px;
     border-radius: 20px;
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2142,7 +2148,7 @@ a:hover {
     font-size: 0.72rem;
     font-weight: 800;
     background: #e2e8f0;
-    color: #334155;
+    color: #0f172a;
     pointer-events: none;
     transition: all 0.22s ease-in-out;
 }
@@ -2309,15 +2315,15 @@ a:hover {
 }
 
 .scope-desc {
-    color: #475569;
-    font-weight: 600;
-    font-size: 0.72rem;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 0.76rem;
 }
 
 .project-scope-tag {
-    font-size: 0.74rem;
-    color: #475569;
-    font-weight: 600;
+    font-size: 0.76rem;
+    color: #0f172a;
+    font-weight: 700;
 }
 
 .project-title {
@@ -2331,11 +2337,16 @@ a:hover {
 .project-body-blocks {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 16px;
-    font-size: 0.83rem;
-    line-height: 1.55;
-    color: var(--text-main);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #0f172a;
+}
+
+.project-body-blocks strong {
+    color: #0f172a;
+    font-weight: 700;
 }
 
 .project-block-item {
@@ -2366,10 +2377,10 @@ a:hover {
 
 .proj-metric-chip {
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1;
     border-radius: 4px;
-    padding: 4px 9px;
-    font-size: 0.74rem;
+    padding: 5px 10px;
+    font-size: 0.76rem;
     font-weight: 700;
     color: #0f172a;
     display: inline-flex;
