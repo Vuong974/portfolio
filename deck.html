@@ -1,1640 +1,1578 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hồ Sơ Năng Lực Quản Trị Marketing — Nguyễn Văn Vượng</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-        :root {
-            --bg-dark: #070b14;
-            --bg-slide: #0b1221;
-            --bg-card: #111c30;
-            --bg-card-alt: #16243d;
-            --primary: #0284c7;
-            --primary-light: #38bdf8;
-            --primary-glow: rgba(56, 189, 248, 0.14);
-            --accent: #10b981;
-            --amber: #f59e0b;
-            --text-main: #f8fafc;
-            --text-body: #cbd5e1;
-            --text-muted: #94a3b8;
-            --border: #243552;
-            --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-family);
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.48;
-        }
-
-        /* Top Control Bar (Hidden in Print) */
-        .deck-controls {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 54px;
-            background: rgba(11, 18, 33, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            z-index: 1000;
-        }
-
-        .deck-controls .title {
-            font-size: 0.86rem;
-            font-weight: 800;
-            color: var(--primary-light);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            letter-spacing: 0.2px;
-        }
-
-        .deck-controls .nav-buttons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-ctrl {
-            background: var(--bg-card-alt);
-            color: var(--text-main);
-            border: 1px solid var(--border);
-            padding: 6px 13px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        .btn-ctrl:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: #fff;
-        }
-
-        .btn-ctrl-primary {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: #fff;
-        }
-
-        .btn-ctrl-primary:hover {
-            background: #0369a1;
-        }
-
-        .slide-nav-pill {
-            display: inline-flex;
-            align-items: center;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .slide-nav-pill button {
-            background: transparent;
-            border: none;
-            color: var(--text-body);
-            padding: 6px 10px;
-            cursor: pointer;
-            font-size: 0.78rem;
-            font-weight: 800;
-        }
-
-        .slide-nav-pill button:hover {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .slide-counter {
-            font-size: 0.8rem;
-            color: var(--primary-light);
-            font-weight: 800;
-            padding: 0 10px;
-            min-width: 66px;
-            text-align: center;
-        }
-
-        /* Presentation Container */
-        .presentation {
-            padding-top: 74px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 32px;
-            padding-bottom: 60px;
-        }
-
-        /* Individual 16:9 Slide (1200 x 675) */
-        .slide {
-            width: 1200px;
-            height: 675px;
-            background: radial-gradient(circle at 88% 12%, rgba(2, 132, 199, 0.12) 0%, transparent 45%),
-                        linear-gradient(155deg, #0b1221 0%, #0f172a 100%);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
-            position: relative;
-            overflow: hidden;
-            padding: 36px 48px 28px 48px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            scroll-margin-top: 68px;
-        }
-
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 55%, var(--accent) 100%);
-        }
-
-        /* Slide Header */
-        .slide-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 1px solid rgba(51, 65, 85, 0.65);
-            padding-bottom: 14px;
-        }
-
-        .slide-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.68rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.9px;
-            color: var(--primary-light);
-            background: var(--primary-glow);
-            padding: 3px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            margin-bottom: 5px;
-        }
-
-        .slide-title {
-            font-size: 1.38rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.4px;
-        }
-
-        .slide-subtitle {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .slide-number-tag {
-            font-size: 0.88rem;
-            font-weight: 800;
-            color: var(--primary-light);
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border);
-            padding: 5px 12px;
-            border-radius: 6px;
-            flex-shrink: 0;
-        }
-
-        /* Slide Body */
-        .slide-body {
-            flex: 1;
-            padding: 18px 0 14px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 14px;
-        }
-
-        /* Slide Footer */
-        .slide-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.73rem;
-            color: #64748b;
-            border-top: 1px solid rgba(51, 65, 85, 0.55);
-            padding-top: 9px;
-        }
-
-        /* Grids */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .grid-2-wide-right {
-            display: grid;
-            grid-template-columns: 0.95fr 1.05fr;
-            gap: 20px;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 18px 20px;
-            position: relative;
-        }
-
-        .card-highlight {
-            background: linear-gradient(150deg, #13233b 0%, #0f1b2e 100%);
-            border-color: rgba(56, 189, 248, 0.42);
-        }
-
-        .card-title {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--primary-light);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .icon-box {
-            width: 26px;
-            height: 26px;
-            border-radius: 6px;
-            background: rgba(56, 189, 248, 0.14);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-light);
-            flex-shrink: 0;
-        }
-
-        .icon-box.green {
-            background: rgba(16, 185, 129, 0.14);
-            border-color: rgba(16, 185, 129, 0.35);
-            color: #34d399;
-        }
-
-        .icon-box.amber {
-            background: rgba(245, 158, 11, 0.14);
-            border-color: rgba(245, 158, 11, 0.35);
-            color: #fbbf24;
-        }
-
-        .card-text {
-            font-size: 0.81rem;
-            color: var(--text-body);
-            line-height: 1.54;
-        }
-
-        .bullet-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-            font-size: 0.8rem;
-            color: var(--text-body);
-        }
-
-        .bullet-list li {
-            position: relative;
-            padding-left: 14px;
-            line-height: 1.48;
-        }
-
-        .bullet-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 7px;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--primary-light);
-        }
-
-        /* Cover Slide */
-        .cover-grid {
-            display: grid;
-            grid-template-columns: 155px 1fr 220px;
-            align-items: center;
-            gap: 28px;
-            margin: auto 0;
-        }
-
-        .cover-avatar-wrap {
-            position: relative;
-            text-align: center;
-        }
-
-        .cover-avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3.5px solid var(--primary-light);
-            box-shadow: 0 0 28px var(--primary-glow);
-        }
-
-        .cover-status {
-            display: inline-block;
-            margin-top: -12px;
-            position: relative;
-            background: #059669;
-            color: #fff;
-            font-size: 0.68rem;
-            font-weight: 800;
-            padding: 3px 10px;
-            border-radius: 12px;
-            border: 2px solid var(--bg-slide);
-        }
-
-        .cover-info h1 {
-            font-size: 1.95rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.5px;
-            line-height: 1.18;
-        }
-
-        .cover-role {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--primary-light);
-            margin-top: 6px;
-        }
-
-        .cover-desc {
-            font-size: 0.84rem;
-            color: var(--text-body);
-            margin-top: 12px;
-            line-height: 1.56;
-        }
-
-        .cover-contact {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            margin-top: 14px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .cover-contact-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .cover-contact-item strong {
-            color: #fff;
-        }
-
-        /* QR / Digital Card */
-        .qr-card {
-            background: linear-gradient(155deg, #13233b 0%, #0e192b 100%);
-            border: 1px solid rgba(56, 189, 248, 0.38);
-            border-radius: 10px;
-            padding: 14px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .qr-svg-box {
-            background: #fff;
-            padding: 8px;
-            border-radius: 8px;
-            width: 96px;
-            height: 96px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .qr-label {
-            font-size: 0.73rem;
-            font-weight: 800;
-            color: var(--primary-light);
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-        }
-
-        .qr-link-btn {
-            display: inline-block;
-            width: 100%;
-            background: rgba(2, 132, 199, 0.22);
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 5px 8px;
-            border-radius: 5px;
-        }
-
-        /* Metric Strip */
-        .metric-banner {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-
-        .metric-box {
-            background: rgba(22, 36, 61, 0.78);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 13px 14px;
-            text-align: center;
-            border-top: 3px solid var(--primary);
-        }
-
-        .metric-val {
-            font-size: 1.48rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.4px;
-        }
-
-        .metric-lbl {
-            font-size: 0.72rem;
-            font-weight: 800;
-            color: var(--primary-light);
-            text-transform: uppercase;
-            margin-top: 3px;
-        }
-
-        .metric-sub {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        /* Tool Pills */
-        .pill-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
-        }
-
-        .tool-pill {
-            font-size: 0.71rem;
-            font-weight: 700;
-            padding: 3px 9px;
-            border-radius: 4px;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid var(--border);
-            color: #e2e8f0;
-        }
-
-        /* Funnel Row */
-        .funnel-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-        }
-
-        .funnel-col {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 13px 14px;
-            position: relative;
-        }
-
-        .funnel-col::after {
-            content: '➔';
-            position: absolute;
-            right: -11px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary-light);
-            font-size: 0.85rem;
-            font-weight: 800;
-            z-index: 2;
-        }
-
-        .funnel-col:last-child::after {
-            display: none;
-        }
-
-        .funnel-step-tag {
-            font-size: 0.66rem;
-            font-weight: 800;
-            color: var(--primary-light);
-            text-transform: uppercase;
-        }
-
-        .funnel-step-name {
-            font-size: 0.86rem;
-            font-weight: 800;
-            color: #fff;
-            margin: 4px 0 5px 0;
-        }
-
-        .funnel-step-desc {
-            font-size: 0.74rem;
-            color: var(--text-muted);
-            line-height: 1.42;
-        }
-
-        /* Mini UI Mockups (Slide 8 & Slide 5) */
-        .ui-mockup {
-            background: #09101d;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 11px 12px;
-            margin-top: 10px;
-            font-size: 0.71rem;
-        }
-
-        .ui-mockup-head {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 800;
-            color: #e2e8f0;
-            border-bottom: 1px solid #1e293b;
-            padding-bottom: 6px;
-            margin-bottom: 7px;
-        }
-
-        .ui-row {
-            display: grid;
-            grid-template-columns: 1.5fr 0.7fr 0.8fr;
-            gap: 6px;
-            padding: 4px 0;
-            border-bottom: 1px dashed rgba(51, 65, 85, 0.45);
-            color: #cbd5e1;
-            align-items: center;
-        }
-
-        .ui-row:last-child {
-            border-bottom: none;
-        }
-
-        .status-dot {
-            display: inline-block;
-            padding: 1px 6px;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .status-green { background: rgba(16, 185, 129, 0.18); color: #34d399; }
-        .status-blue { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
-        .status-amber { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
-
-        .kpi-mini-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .kpi-mini-box {
-            background: #09101d;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 8px 10px;
-        }
-
-        .kpi-mini-val {
-            font-size: 1.05rem;
-            font-weight: 800;
-            color: #34d399;
-        }
-
-        .kpi-mini-lbl {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        /* Note Callout Strip */
-        .callout-strip {
-            background: rgba(17, 28, 48, 0.92);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--primary-light);
-            border-radius: 8px;
-            padding: 11px 16px;
-            font-size: 0.79rem;
-            color: var(--text-body);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Timeline 30-60-90 */
-        .timeline-box {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            flex: 1;
-        }
-
-        .timeline-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 18px 20px;
-            border-top: 4px solid var(--primary);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .timeline-card.month60 { border-top-color: var(--accent); }
-        .timeline-card.month90 { border-top-color: var(--amber); }
-
-        .timeline-phase {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: var(--primary-light);
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-        }
-
-        .timeline-card.month60 .timeline-phase { color: #34d399; }
-        .timeline-card.month90 .timeline-phase { color: #fbbf24; }
-
-        .timeline-title {
-            font-size: 1rem;
-            font-weight: 800;
-            color: #fff;
-            margin: 4px 0 12px 0;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
-        }
-
-        /* Print Mode: Exact 10-page 16:9 Landscape PDF (Pure Vector Optimized) */
-        @media print {
-            @page {
-                size: 16in 9in;
-                margin: 0;
-            }
-
-            *, *::before, *::after {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                box-shadow: none !important;
-                text-shadow: none !important;
-                filter: none !important;
-                backdrop-filter: none !important;
-            }
-
-            html, body {
-                width: 16in !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: #0b1221 !important;
-                background-image: none !important;
-            }
-
-            .deck-controls {
-                display: none !important;
-            }
-
-            .presentation {
-                padding: 0 !important;
-                gap: 0 !important;
-                display: block !important;
-            }
-
-            .slide {
-                width: 16in !important;
-                height: 9in !important;
-                border-radius: 0 !important;
-                border: none !important;
-                box-shadow: none !important;
-                page-break-after: always !important;
-                break-after: page !important;
-                page-break-inside: avoid !important;
-                padding: 0.48in 0.62in 0.38in 0.62in !important;
-                background: #0b1221 !important;
-                background-image: none !important;
-            }
-
-            .slide::before {
-                background: #0284c7 !important;
-                background-image: none !important;
-            }
-
-            .card {
-                background: #111c30 !important;
-                background-image: none !important;
-                box-shadow: none !important;
-            }
-
-            .card-highlight {
-                background: #16243d !important;
-                background-image: none !important;
-                border-color: #38bdf8 !important;
-            }
-
-            .metric-banner, .qr-card {
-                background: #13233b !important;
-                background-image: none !important;
-                box-shadow: none !important;
-            }
-
-            .cover-avatar {
-                box-shadow: none !important;
-            }
-
-            .callout-strip, .timeline-card, .metric-box, .kpi-mini-box, .ui-mockup {
-                box-shadow: none !important;
-                background-image: none !important;
-            }
-
-            .slide:last-child {
-                page-break-after: auto !important;
-                break-after: auto !important;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- TOP CONTROLS -->
-    <div class="deck-controls">
-        <div class="title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
-            <span>PORTFOLIO PITCH DECK — NGUYỄN VĂN VƯỢNG (TRƯỞNG PHÒNG MARKETING)</span>
-        </div>
-        <div class="nav-buttons">
-            <div class="slide-nav-pill" title="Dùng phím mũi tên Trái / Phải để chuyển Slide">
-                <button type="button" id="prevSlideBtn" aria-label="Slide trước">◀</button>
-                <span class="slide-counter" id="slideCounter">01 / 10</span>
-                <button type="button" id="nextSlideBtn" aria-label="Slide tiếp">▶</button>
-            </div>
-            <a href="assets/Portfolio_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download class="btn-ctrl btn-ctrl-primary">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                <span>Tải PDF Chuẩn</span>
-            </a>
-            <button type="button" class="btn-ctrl" onclick="window.print()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
-                <span>In (16:9)</span>
-            </button>
-            <a href="index.html" class="btn-ctrl">
-                <span>Web Portfolio</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-            </a>
-        </div>
-    </div>
-
-    <!-- PRESENTATION SLIDES -->
-    <div class="presentation">
-
-        <!-- ================= SLIDE 01: COVER ================= -->
-        <section class="slide" id="slide-1">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Hồ Sơ Năng Lực Quản Trị Marketing • 2026</span>
-                    <div class="slide-title">NGUYỄN VĂN VƯỢNG</div>
-                    <div class="slide-subtitle">Ứng tuyển: Trưởng Phòng Marketing (Marketing Manager / Head of Marketing)</div>
-                </div>
-                <div class="slide-number-tag">01 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="cover-grid">
-                    <div class="cover-avatar-wrap">
-                        <img src="assets/avatar.jpg" alt="Nguyễn Văn Vượng" class="cover-avatar">
-                    </div>
-
-                    <div class="cover-info">
-                        <h1>QUẢN TRỊ NGÂN SÁCH THEO P&L<br>& GẮN CHẶT HIỆU QUẢ CÙNG SALES</h1>
-                        <div class="cover-role">Thực Chiến Đa Mô Hình B2B & Chuỗi Bán Lẻ B2C • Vững Kỹ Thuật & Hệ Thống</div>
-                        <p class="cover-desc">
-                            7 năm kinh nghiệm tiếp thị số (4+ năm vị trí Quản lý / Phó phòng phụ trách chung báo cáo trực tiếp Ban Giám đốc). Kết hợp nền tảng <strong>Ứng dụng Phần mềm (FPT Polytechnic)</strong> với năng lực hoạch định ngân sách (CPL trần, CIR, ROAS), làm chủ Paid Ads, Technical SEO & GEO, và số hóa vận hành trên <strong>Lark Base & Looker Studio</strong>.
-                        </p>
-                        <div class="cover-contact">
-                            <div class="cover-contact-item">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#38bdf8"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                                <span>SĐT/Zalo: <strong>0868.772.540</strong></span>
-                            </div>
-                            <div class="cover-contact-item">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#38bdf8"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                <span>Email: <strong>vuongnv.upgrade@gmail.com</strong></span>
-                            </div>
-                            <div class="cover-contact-item">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                <span>Định Công, Hoàng Mai, <strong>Hà Nội</strong></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="qr-card">
-                        <div class="qr-svg-box">
-                            <svg width="80" height="80" viewBox="0 0 80 80" fill="#0f172a">
-                                <rect x="4" y="4" width="22" height="22" rx="2" fill="none" stroke="#0f172a" stroke-width="4"/>
-                                <rect x="10" y="10" width="10" height="10"/>
-                                <rect x="54" y="4" width="22" height="22" rx="2" fill="none" stroke="#0f172a" stroke-width="4"/>
-                                <rect x="60" y="10" width="10" height="10"/>
-                                <rect x="4" y="54" width="22" height="22" rx="2" fill="none" stroke="#0f172a" stroke-width="4"/>
-                                <rect x="10" y="60" width="10" height="10"/>
-                                <rect x="33" y="6" width="6" height="6"/><rect x="42" y="6" width="6" height="6"/>
-                                <rect x="33" y="16" width="14" height="6"/><rect x="33" y="28" width="6" height="14"/>
-                                <rect x="6" y="34" width="12" height="6"/><rect x="22" y="34" width="6" height="12"/>
-                                <rect x="44" y="30" width="10" height="10" fill="#0284c7"/>
-                                <rect x="58" y="34" width="18" height="6"/><rect x="58" y="44" width="6" height="12"/>
-                                <rect x="34" y="48" width="18" height="6"/><rect x="34" y="58" width="6" height="18"/>
-                                <rect x="46" y="60" width="12" height="6"/><rect x="64" y="60" width="12" height="16"/>
-                                <rect x="46" y="70" width="12" height="6"/>
-                            </svg>
-                        </div>
-                        <div class="qr-label">Hồ Sơ Tương Tác Số</div>
-                        <a href="index.html" class="qr-link-btn">Mở Web Portfolio ➔</a>
-                        <a href="assets/CV_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download class="qr-link-btn" style="background:transparent;">Tải CV Bản In (PDF)</a>
-                    </div>
-                </div>
-
-                <div class="metric-banner">
-                    <div class="metric-box">
-                        <div class="metric-val">7 Năm</div>
-                        <div class="metric-lbl">Kinh Nghiệm Thực Chiến</div>
-                        <div class="metric-sub">Trong đó 4+ năm vị trí Quản lý</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-val">350 – 400Tr</div>
-                        <div class="metric-lbl">Ngân Sách Phụ Trách / Tháng</div>
-                        <div class="metric-sub">Kiểm soát CPL trần, CIR, ROAS</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-val">5 Nhân Sự</div>
-                        <div class="metric-lbl">Quy Mô Đội Ngũ Phụ Trách</div>
-                        <div class="metric-sub">Ads, SEO, Content, Thiết kế</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-val">B2B & B2C</div>
-                        <div class="metric-lbl">Đa Mô Hình Kinh Doanh</div>
-                        <div class="metric-sub">Dịch vụ DN & Bán lẻ chuỗi 3 điểm</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing (Năm sinh: 1998)</div>
-                <div>Executive Portfolio Deck • Chuẩn Hóa Bảo Mật Dữ Liệu (NDA)</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 02: EXECUTIVE SUMMARY & USP ================= -->
-        <section class="slide" id="slide-2">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Định Vị Quản Trị & Lợi Thế Cạnh Tranh</span>
-                    <div class="slide-title">Chân Dung Quản Trị & 3 Trụ Cột Khác Biệt</div>
-                    <div class="slide-subtitle">Giải bài toán tăng trưởng thực chất bằng kỷ luật tài chính, chiều sâu kỹ thuật CNTT và sự đồng bộ cùng Sales</div>
-                </div>
-                <div class="slide-number-tag">02 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="grid-3" style="flex:1;">
-                    <div class="card card-highlight">
-                        <div class="card-title">
-                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg></span>
-                            <span>1. Quản Trị Ngân Sách & P&L</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li>Hoạch định ngân sách tiếp thị hàng tháng cùng Ban Giám đốc dựa trên <strong>CPL trần, tỷ lệ CIR và ROAS</strong> mục tiêu.</li>
-                            <li>Dựng báo cáo chi phí – sản lượng & P&L qua <strong>Looker Studio</strong> theo dõi từng ngày, kịp thời tắt nhóm đắt ngay trong tuần.</li>
-                            <li>Đã trực tiếp kiểm soát ngân sách tiếp thị từ <strong>~300 triệu/tháng (Chuỗi bán lẻ B2C)</strong> đến <strong>350 – 400 triệu/tháng (Dịch vụ B2B)</strong> bám sát định mức P&L.</li>
-                        </ul>
-                    </div>
-
-                    <div class="card card-highlight">
-                        <div class="card-title">
-                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></span>
-                            <span>2. Nền Tảng Phần Mềm (FPT Poly)</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li>Tốt nghiệp chuyên ngành <strong>Ứng dụng Phần mềm</strong> — nắm vững cấu trúc cơ sở dữ liệu và kỹ thuật web.</li>
-                            <li>Trực tiếp thiết lập <strong>Technical Tracking (GTM, GA4, Pixel)</strong>, tối ưu <strong>SEO & GEO</strong> và trang đích (CRO).</li>
-                            <li>Làm việc trực tiếp với đơn vị kỹ thuật xử lý website/hosting và quản lý luồng công việc rõ ràng trên <strong>Lark Base</strong>.</li>
-                        </ul>
-                    </div>
-
-                    <div class="card card-highlight">
-                        <div class="card-title">
-                            <span class="icon-box amber"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
-                            <span>3. Đồng Bộ Sát Sao Cùng Sales</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li>Không chạy theo số lượng lead ảo; chịu trách nhiệm đối soát chất lượng <strong>MQL ➔ SQL</strong> hàng tuần cùng bộ phận Kinh doanh.</li>
-                            <li>Điều chuyển ngân sách linh hoạt ngay vào các dòng sản phẩm/dịch vụ dễ ký hợp đồng hoặc cần đẩy tồn kho tại điểm bán.</li>
-                            <li>Tuyển dụng, kèm cặp chuyên môn và tính KPI/thưởng minh bạch cho từng vị trí trong nhóm.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="callout-strip">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12 2L1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>
-                    <div><strong>Phương châm & Tác phong làm việc:</strong> Tác phong thẳng thắn, luôn sẵn sàng trực tiếp bắt tay tháo gỡ bài toán khó cùng đội ngũ.</div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
-                <div>02 / 10 • Executive Summary & Core Philosophy</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 03: MARTECH & OPS ARCHITECTURE ================= -->
-        <section class="slide" id="slide-3">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Kiến Trúc Vận Hành & Công Cụ</span>
-                    <div class="slide-title">Hệ Sinh Thái Chuyên Môn & MarTech Stack Thực Chiến</div>
-                    <div class="slide-subtitle">Vận hành khép kín 3 tầng từ Thu hút đa kênh, Tối ưu chuyển đổi & Tracking đến Quản trị SOP & P&L</div>
-                </div>
-                <div class="slide-number-tag">03 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="grid-3" style="flex:1;">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg></span>
-                            <span>TẦNG 1: THU HÚT ĐA KÊNH</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>Paid Ads:</strong> Triển khai & tối ưu Google Ads (Search, PMax) và Facebook/Meta Ads kiểm soát chặt chi phí chuyển đổi.</li>
-                            <li><strong>SEO & GEO:</strong> Nghiên cứu từ khóa mua hàng, tối ưu cấu trúc web đẩy từ khóa chủ lực lên Top Google & tìm kiếm AI.</li>
-                            <li><strong>Phễu Nội Dung & Sự Kiện:</strong> Tuyến bài giải quyết Pain Points, tổ chức chuỗi Hội thảo & Webinar thu hút khách DN.</li>
-                        </ul>
-                        <div class="pill-group">
-                            <span class="tool-pill">Google Ads (Search, PMax)</span>
-                            <span class="tool-pill">Facebook Ads</span>
-                            <span class="tool-pill">Semrush & Search Console</span>
-                        </div>
-                    </div>
-
-                    <div class="card card-highlight">
-                        <div class="card-title">
-                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></span>
-                            <span>TẦNG 2: WEBSITE, CRO & TRACKING</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>CRO Landing Page:</strong> Thiết kế trang đích riêng cho từng tiêu chuẩn/nhóm sản phẩm kèm câu hỏi lọc quy mô trên form.</li>
-                            <li><strong>Technical Tracking:</strong> Cài đặt đo lường chuyển đổi chi tiết qua Google Tag Manager, GA4 và Meta Pixel.</li>
-                            <li><strong>Kỹ Thuật Web:</strong> Vận hành, nâng cấp website và làm việc với nhà cung cấp xử lý sự cố kỹ thuật, hosting & bảo mật.</li>
-                        </ul>
-                        <div class="pill-group">
-                            <span class="tool-pill">WordPress & Ladipage</span>
-                            <span class="tool-pill">Google Tag Manager</span>
-                            <span class="tool-pill">GA4 & Meta Pixel</span>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box amber"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></span>
-                            <span>TẦNG 3: QUẢN TRỊ SOP, BI & AI</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>Quản trị SOP & Tiến độ:</strong> Đưa toàn bộ luồng giao việc, duyệt bài – ấn phẩm và theo dõi tiến độ lên <strong>Lark Base & Lark Suite</strong>.</li>
-                            <li><strong>Báo cáo BI:</strong> Kết nối dữ liệu tự động về <strong>Looker Studio</strong> báo cáo chi phí – sản lượng & P&L cho Ban Giám đốc.</li>
-                            <li><strong>Ứng dụng AI:</strong> Chuẩn hóa quy trình dùng AI hỗ trợ đội ngũ biên tập bài viết chuyên môn và tự động hóa công việc.</li>
-                        </ul>
-                        <div class="pill-group">
-                            <span class="tool-pill">Lark Base & Lark Suite</span>
-                            <span class="tool-pill">Looker Studio</span>
-                            <span class="tool-pill">Google Antigravity</span>
-                            <span class="tool-pill">Claude, ChatGPT, Gemini</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout-strip">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#34d399"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                    <div><strong>Giá trị thực tế:</strong> Hiểu cả kỹ thuật web lẫn vận hành giúp phòng Marketing chủ động triển khai nhanh, tiết kiệm chi phí thuê ngoài và minh bạch số liệu chi phí – hiệu quả với Ban Giám đốc.</div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
-                <div>03 / 10 • MarTech & Operations Architecture</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 04: CASE STUDY 1 (KNA PART 1) ================= -->
-        <section class="slide" id="slide-4">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Case Study 01 • Dịch Vụ Doanh Nghiệp B2B</span>
-                    <div class="slide-title">KNA CERT: Chiến Lược Phễu B2B Đa Tầng Lọc Đúng Nhu Cầu Thật</div>
-                    <div class="slide-subtitle">08/2024 – Hiện tại • Phó Phòng Marketing (Phụ trách chung bộ phận Marketing — Báo cáo trực tiếp Ban Giám đốc)</div>
-                </div>
-                <div class="slide-number-tag">04 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="grid-2" style="flex:1;">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box amber"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></span>
-                            <span>Bối Cảnh & Bài Toán Khó Ngành B2B</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>Lĩnh vực:</strong> Đào tạo & Chứng nhận Tiêu chuẩn Quốc tế B2B (ISO 9001, 14001, 22000, WRAP, Sedex, BSCI, ESG...).</li>
-                            <li><strong>Quy mô quản lý:</strong> Tổng ngân sách đa kênh <strong>350 – 400 triệu VNĐ/tháng</strong>; trực tiếp tuyển dụng, giao KPI đội ngũ <strong>5 nhân sự</strong> (Ads, SEO, Content, Thiết kế), kiểm soát <strong>CIR 15% – 18%</strong>.</li>
-                            <li><strong>Điểm nghẽn ban đầu:</strong> Kênh Google Ads bị nghẽn ở mức ~100 triệu/tháng do CPL bị đẩy lên rất cao (~1,29 triệu/lead), đo lường chuyển đổi sai lệch khiến máy học Google nhận sai tín hiệu và không phân bổ được ngân sách.</li>
-                            <li><strong>Insight Khách hàng B2B:</strong> Doanh nghiệp xuất khẩu chịu áp lực kiểm xưởng khắt khe; sợ thủ tục rườm rà, trễ hạn xuất hàng. Quảng cáo dễ lẫn tệp tìm tài liệu tham khảo miễn phí.</li>
-<li><strong>Định vị thông điệp:</strong> Nhấn mạnh <em>Sự chuẩn mực quốc tế, Tiến độ thẩm định cam kết và Đội ngũ chuyên gia thực chiến đồng hành</em>.</li>
-                        </ul>
-                    </div>
-
-                    <div class="card card-highlight">
-                        <div class="card-title">
-                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg></span>
-                            <span>Chiến Lược Giải Quyết Trực Tiếp</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>Chuẩn hóa đo lường & Cấu trúc Google Ads:</strong> Thiết lập Enhanced Conversions và Offline Conversions cấp tín hiệu sạch cho Google; cấu trúc lại chiến dịch <strong>hạ CPL từ 1,29Tr xuống 450K – 550K (điểm rơi 466K), nâng riêng kênh Google Ads từ 100Tr lên 300 – 330Tr/tháng</strong>.</li>
-                            <li><strong>Giao diện mới, chuẩn SEO & Tự chủ nền tảng:</strong> Phối hợp làm giao diện mới tối ưu UI/UX & chuyển đổi (CRO), tái cấu trúc chuẩn SEO, gỡ lỗi Technical & chuyển hướng 301 từ website cũ (service.knacert.com.vn) sang WordPress (knacert.com.vn); dứt điểm phụ thuộc đơn vị ngoài khi nâng cấp.</li>
-                            <li><strong>CRO Landing Page & Lọc Form:</strong> Thiết kế Landing Page riêng cho từng tiêu chuẩn kết hợp thêm <strong>câu hỏi lọc quy mô doanh nghiệp</strong> ngay trên form đăng ký để tập trung phục vụ khách thật.</li>
-                            <li><strong>Webinar, Phễu Ebook & Brand Guideline:</strong> Chủ trì chuỗi Webinar (<strong>200 – 300 đăng ký/kỳ</strong>, CPL ~80K – 120K) & phễu Ebook (<strong>200 – 250 leads/th</strong>, CPL ~90K) nuôi dưỡng qua ERP; làm lại bộ <a href="https://drive.google.com/file/d/1i758-ZRrPiaOScOJ_0ER_gYrpDM1UXJw/view?usp=sharing" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;">Brand Guideline (PDF) ↗</a>.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="funnel-row">
-                    <div class="funnel-col">
-                        <div class="funnel-step-tag">Tầng 01 • Thu Hút Tự Nhiên</div>
-                        <div class="funnel-step-name">SEO, GEO & Nội Dung</div>
-                        <div class="funnel-step-desc">Đón tệp tra cứu tiêu chuẩn ISO/CSR/ESG miễn phí, tối ưu ngân sách Ads.</div>
-                    </div>
-                    <div class="funnel-col">
-                        <div class="funnel-step-tag">Tầng 02 • Xây Dựng Uy Tín</div>
-                        <div class="funnel-step-name">Hội Thảo & Webinar</div>
-                        <div class="funnel-step-desc">Giải đáp tiêu chuẩn mới trực tiếp & trực tuyến cho cấp quản lý, chủ nhà máy.</div>
-                    </div>
-                    <div class="funnel-col">
-                        <div class="funnel-step-tag">Tầng 03 • Chuyển Đổi Cao</div>
-                        <div class="funnel-step-name">Ads + Landing Page Riêng</div>
-                        <div class="funnel-step-desc">Từ khóa sát nhu cầu chứng nhận + Form lọc quy mô doanh nghiệp.</div>
-                    </div>
-                    <div class="funnel-col">
-                        <div class="funnel-step-tag">Tầng 04 • Chốt Hợp Đồng</div>
-                        <div class="funnel-step-name">Đối Soát MQL ➔ SQL</div>
-                        <div class="funnel-step-desc">Họp cùng Sales hàng tuần, điều chuyển tiền vào dịch vụ dễ ký hợp đồng.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
-                <div>04 / 10 • Case Study 01: B2B Funnel Strategy (KNA Cert)</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 05: CASE STUDY 1 (KNA PART 2) ================= -->
-        <section class="slide" id="slide-5">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Case Study 01 • Dịch Vụ Doanh Nghiệp B2B (Tiếp Theo)</span>
-                    <div class="slide-title">KNA CERT: Vận Hành Đối Soát MQL ➔ SQL & Kết Quả Kinh Doanh</div>
-                    <div class="slide-subtitle">Kiểm soát chặt ngân sách 350 – 400 triệu/tháng qua nhịp phối hợp hàng tuần cùng bộ phận Kinh doanh</div>
-                </div>
-                <div class="slide-number-tag">05 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="grid-2-wide-right" style="flex:1;">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg></span>
-                            <span>Cơ Chế Đồng Bộ Marketing – Sales Hàng Tuần</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>Phân bổ ngân sách 350 – 400Tr mạch lạc:</strong> Google Ads chủ lực (<strong>300 – 330Tr</strong>), Phễu Lead Magnet Ebook (<strong>20 – 25Tr</strong>) và Truyền thông Webinar, SEO & Vận hành (<strong>30 – 45Tr</strong>).</li>
-                            <li><strong>Họp đối soát data hàng tuần:</strong> Trực tiếp ngồi cùng đội Kinh doanh rà soát tỷ lệ MQL ➔ SQL thực tế của từng tiêu chuẩn (ISO 9001, 14001, 22000, CSR...).</li>
-                            <li><strong>Điều chuyển ngân sách tức thời:</strong> Dịch vụ nào đang có nhu cầu thị trường tốt và dễ ký hợp đồng được ưu tiên dồn ngân sách ngay trong tuần.</li>
-                            <li><strong>Số hóa báo cáo & AI:</strong> Theo dõi sản lượng – chi phí hàng ngày trên Looker Studio; hướng dẫn nhóm dùng AI hỗ trợ biên tập bài chuyên môn.</li>
-                        </ul>
-                    </div>
-
-                    <div class="card card-highlight" style="display:flex; flex-direction:column; justify-content:space-between;">
-                        <div>
-                            <div class="card-title">
-                                <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></span>
-                                <span>Bảng Chỉ Số Hiệu Quả Thực Tế (KNA Cert)</span>
-                            </div>
-                            <div class="kpi-mini-grid">
-                                <div class="kpi-mini-box">
-                                    <div class="kpi-mini-val" style="color:#38bdf8;">~700 MQL/Tháng</div>
-                                    <div class="kpi-mini-lbl">Lead Ý Định Cao Giao Sales</div>
-                                </div>
-                                <div class="kpi-mini-box">
-                                    <div class="kpi-mini-val">90% Đúng Nhu Cầu</div>
-                                    <div class="kpi-mini-lbl">Tỷ Lệ Data Đạt Chuẩn Thực Tế</div>
-                                </div>
-                                <div class="kpi-mini-box">
-                                    <div class="kpi-mini-val" style="color:#fbbf24;">350 – 400Tr</div>
-                                    <div class="kpi-mini-lbl">Ngân Sách Quản Trị / Tháng</div>
-                                </div>
-                                <div class="kpi-mini-box">
-                                    <div class="kpi-mini-val" style="color:#e2e8f0;">CIR 15% – 18%</div>
-                                    <div class="kpi-mini-lbl">40–50 HĐ Mới/Th (ROAS 5.5x–6.5x)</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Visual Conversion Quality Bar -->
-                        <div class="ui-mockup">
-                            <div class="ui-mockup-head">
-                                <span>Tỷ trọng chất lượng Lead B2B sau chuẩn hóa phễu lọc</span>
-                                <span style="color:#34d399;">90% Qualified</span>
-                            </div>
-                            <div style="background:#1e293b; height:18px; border-radius:9px; overflow:hidden; display:flex; margin:6px 0;">
-                                <div style="width:90%; background:linear-gradient(90deg, #0284c7, #10b981); display:flex; align-items:center; padding-left:10px; font-size:0.65rem; font-weight:800; color:#fff;">90% Doanh nghiệp đúng nhu cầu làm chứng nhận / đào tạo</div>
-                                <div style="width:10%; background:#334155;"></div>
-                            </div>
-                            <div style="font-size:0.68rem; color:#94a3b8;">Giảm thiểu tối đa tệp khách xin tài liệu miễn phí; tăng tốc độ tiếp cận cấp quản lý & chủ nhà máy qua chuỗi Hội thảo/Webinar.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout-strip">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    <div><strong>Tác động kinh doanh cốt lõi:</strong> Tháo gỡ nút thắt đo lường giúp hạ CPL từ 1,29Tr xuống 450K – 550K; mở rộng tổng ngân sách lên 350 – 400Tr/tháng, cung cấp ổn định ~700 MQL chất lượng/tháng và đóng góp 40 – 50 hợp đồng B2B mới/tháng (CIR 15% – 18%, ROAS 5.5x – 6.5x).</div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
-                <div>05 / 10 • Case Study 01: MQL-to-SQL Alignment & Impact (KNA Cert)</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 06: CASE STUDY 2 (LAPVIP PART 1) ================= -->
-        <section class="slide" id="slide-6">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Case Study 02 • Chuỗi Bán Lẻ B2C Đa Chi Nhánh</span>
-                    <div class="slide-title">LAPVIP (LPL VIỆT NAM): Mở Rộng 1 ➔ 3 Chi Nhánh & Giữ Doanh Số 5–6 Tỷ/Tháng</div>
-                    <div class="slide-subtitle">10/2019 – 08/2024 (Gần 5 Năm) • Chuỗi Laptop Doanh Nhân & Đồ Họa Cao Cấp (ThinkPad, Dell XPS, Surface, MacBook) • Bổ nhiệm: Chuyên viên ➔ Quản Lý Marketing</div>
-                </div>
-                <div class="slide-number-tag">06 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="grid-2" style="flex:1;">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg></span>
-                            <span>Quá Trình Thăng Tiến & Bài Toán Chuỗi</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>Bổ nhiệm nội bộ:</strong> Đi lên từ vị trí Chuyên viên Digital (Ads & SEO) sau hơn 2 năm làm việc hiệu quả; trực tiếp nắm chuyên môn chính và quản lý nhóm <strong>4 nhân sự (02 Content, 01 Thiết kế, 01 Media)</strong>.</li>
-                            <li><strong>Ngân sách trực tiếp cầm:</strong> <strong>~300 triệu VNĐ/tháng</strong> (280 – 300Tr chi phí Media) phục vụ mở rộng hệ thống tại Hà Nội & TP. Hồ Chí Minh.</li>
-                            <li><strong>Insight Khách Laptop Cao Cấp:</strong> Ở phân khúc máy 20 – 60 triệu, khách sợ nhất <em>mua phải hàng dựng, máy sửa chữa và bảo hành đùn đẩy</em>; rất ít khi chốt online nếu chưa được test máy tận tay.</li>
-<li><strong>Định vị thương hiệu:</strong> Máy chuẩn nguyên bản (Zin 100%), Trải nghiệm trực tiếp tại showroom trung tâm, Tư vấn đúng cấu hình theo từng chuyên ngành và hậu mãi tận tâm.</li>
-                        </ul>
-                    </div>
-
-                    <div class="card card-highlight">
-                        <div class="card-title">
-                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
-                            <span>Chiến Lược Tiếp Thị Điểm Bán & Mùa Vụ</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>Ads mã máy & Khoanh vùng điểm bán:</strong> Tự lên kế hoạch, cài đặt và tối ưu Facebook Ads, Google Ads tìm kiếm mã máy kết hợp khoanh vùng quanh từng showroom.</li>
-                            <li><strong>Truyền thông mở rộng chuỗi:</strong> Triển khai chiến dịch khai trương mở rộng từ <strong>1 cửa hàng lên 3 chi nhánh</strong> tại Hà Nội & TP.HCM.</li>
-                            <li><strong>Phối hợp đẩy tồn kho hàng ngày:</strong> Nắm sát mã máy tồn và dòng máy khách hỏi nhiều tại 3 showroom để điều chỉnh Ads, sản xuất video/ấn phẩm kích cầu dịp <strong>Back-to-School, Lễ Tết</strong>.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="metric-banner">
-                    <div class="metric-box">
-                        <div class="metric-val">5 – 6 Tỷ / Tháng</div>
-                        <div class="metric-lbl">Doanh Thu Chuỗi Duy Trì</div>
-                        <div class="metric-sub">3 Showroom tại HN & TP.HCM</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-val">5.0% – 5.8%</div>
-                        <div class="metric-lbl">Ad CIR Toàn Chuỗi</div>
-                        <div class="metric-sub">Ngân sách tiếp thị ~300Tr/tháng</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-val">MER 17x – 20x</div>
-                        <div class="metric-lbl">Hiệu Suất Toàn Chuỗi</div>
-                        <div class="metric-sub">Paid Ads ROAS trực tiếp: 9x – 11x</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-val">22 – 28 Triệu</div>
-                        <div class="metric-lbl">AOV Đơn Hàng TB</div>
-                        <div class="metric-sub">ThinkPad, XPS, Surface, Mac</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
-                <div>06 / 10 • Case Study 02: Multi-Store Retail Expansion (Lapvip)</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 07: CASE STUDY 2 (LAPVIP PART 2 + SEO CHART) ================= -->
-        <section class="slide" id="slide-7">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Case Study 02 • Chuỗi Bán Lẻ B2C (Tiếp Theo)</span>
-                    <div class="slide-title">LAPVIP: Đẩy SEO Từ 0 ➔ 25.000+ Traffic/Tháng (Đỉnh 27.1K) & Quản Lý Media</div>
-                    <div class="slide-subtitle">Xây dựng tài sản Organic Traffic bền vững giảm phụ thuộc quảng cáo và chuẩn hóa nội dung bán hàng</div>
-                </div>
-                <div class="slide-number-tag">07 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="grid-2-wide-right" style="flex:1;">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
-                            <span>Kỹ Thuật SEO & Quản Trị Đội Media</span>
-                        </div>
-                        <ul class="bullet-list">
-                            <li><strong>Trực tiếp làm kỹ thuật SEO:</strong> Tự quy hoạch cấu trúc website, nghiên cứu bộ từ khóa mua hàng và lên dàn ý chi tiết cho Content triển khai.</li>
-                            <li><strong>Đánh trúng 4 tệp nhu cầu thực:</strong> Tập trung tuyến bài tư vấn chọn máy cho <em>Sinh viên, Văn phòng, Đồ họa, Gaming</em> — đưa nhiều từ khóa chủ lực lên Top Google.</li>
-                            <li><strong>Quản lý sản xuất bán hàng:</strong> Phân công tiến độ quay dựng video trải nghiệm máy thực tế tại showroom, thiết kế ấn phẩm khuyến mại và bài đăng fanpage.</li>
-                            <li><strong>Kiểm soát chất lượng & KPI:</strong> Trực tiếp duyệt chất lượng đầu ra và đánh giá KPI hàng tháng cho từng vị trí.</li>
-                        </ul>
-                    </div>
-
-                    <div class="card card-highlight" style="display:flex; flex-direction:column; justify-content:space-between;">
-                        <div class="card-title" style="margin-bottom:4px;">
-                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg></span>
-                            <span>Biểu Đồ Tăng Trưởng SEO Website: 0 ➔ 27.100+ Traffic/Tháng</span>
-                        </div>
-
-                        <!-- Embedded SVG Growth Chart -->
-                        <div style="background:#09101d; border:1px solid var(--border); border-radius:8px; padding:12px 14px;">
-                            <svg viewBox="0 0 460 165" style="width:100%; height:auto; display:block;">
-                                <defs>
-                                    <linearGradient id="seoArea" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.42"/>
-                                        <stop offset="100%" stop-color="#0284c7" stop-opacity="0.02"/>
-                                    </linearGradient>
-                                </defs>
-                                <line x1="48" y1="22" x2="435" y2="22" stroke="#1e293b" stroke-dasharray="4,4"/>
-                                <text x="8" y="26" font-size="11" fill="#38bdf8" font-weight="700">27.100</text>
-                                <line x1="48" y1="68" x2="435" y2="68" stroke="#1e293b" stroke-dasharray="4,4"/>
-                                <text x="8" y="72" font-size="11" fill="#94a3b8">15.000</text>
-                                <line x1="48" y1="114" x2="435" y2="114" stroke="#1e293b" stroke-dasharray="4,4"/>
-                                <text x="8" y="118" font-size="11" fill="#94a3b8">5.000</text>
-                                <line x1="48" y1="138" x2="435" y2="138" stroke="#334155"/>
-                                <text x="28" y="142" font-size="11" fill="#94a3b8">0</text>
-
-                                <path d="M 55 138 Q 135 134 190 112 T 315 62 T 425 22 L 425 138 L 55 138 Z" fill="url(#seoArea)"/>
-                                <path d="M 55 138 Q 135 134 190 112 T 315 62 T 425 22" fill="none" stroke="#38bdf8" stroke-width="3.5"/>
-
-                                <circle cx="55" cy="138" r="4.5" fill="#0284c7" stroke="#fff" stroke-width="1.5"/>
-                                <circle cx="190" cy="112" r="4.5" fill="#0284c7" stroke="#fff" stroke-width="1.5"/>
-                                <circle cx="315" cy="62" r="4.5" fill="#0284c7" stroke="#fff" stroke-width="1.5"/>
-                                <circle cx="425" cy="22" r="6" fill="#10b981" stroke="#fff" stroke-width="2"/>
-
-                                <text x="48" y="157" font-size="10" fill="#94a3b8">Khởi tạo cấu trúc</text>
-                                <text x="155" y="157" font-size="10" fill="#94a3b8">Tuyến bài tư vấn</text>
-                                <text x="255" y="157" font-size="10" fill="#94a3b8">Top từ khóa mua hàng</text>
-                                <text x="372" y="157" font-size="10.5" fill="#34d399" font-weight="800">27.1K Traffic/th</text>
-                            </svg>
-                        </div>
-
-                        <div class="pill-group" style="margin-top:8px;">
-                            <span class="tool-pill">Tệp Sinh Viên</span>
-                            <span class="tool-pill">Tệp Văn Phòng</span>
-                            <span class="tool-pill">Tệp Đồ Họa</span>
-                            <span class="tool-pill">Tệp Gaming</span>
-                            <span class="tool-pill">Video Trải Nghiệm Showroom</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout-strip">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#34d399"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
-                    <div><strong>Giá trị dài hạn cho chuỗi bán lẻ:</strong> Nền tảng SEO vượt 25.000+ traffic/tháng (tăng trưởng bền vững đạt đỉnh 27.1K/tháng) kết hợp kho video review thực tế giúp mang lại <strong>25% – 30% doanh thu tự nhiên (non-paid)</strong>, kéo Ad CIR toàn chuỗi về 5.0% – 5.8%.</div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
-                <div>07 / 10 • Case Study 02: Technical SEO & Media Leadership (Lapvip)</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 08: TEAM OPS ON LARK & LARK BASE ================= -->
-        <section class="slide" id="slide-8">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Quản Trị Đội Ngũ & Quy Trình Phối Hợp</span>
-                    <div class="slide-title">Đưa Lark & Lark Base Vào Quản Lý Giao Việc Đội Ngũ 5 Nhân Sự</div>
-                    <div class="slide-subtitle">Chuyển toàn bộ báo cáo và làm việc cá nhân từ SharePoint, Google Sheet ra Lark để kiểm soát tiến độ, không trôi hay quên việc</div>
-                </div>
-                <div class="slide-number-tag">08 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="grid-3" style="flex:1;">
-                    <!-- Col 1: 5-Person Org -->
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
-                            <span>Quản Lý 5 Nhân Sự Tại KNA</span>
-                        </div>
-                        <p class="card-text" style="font-size:0.77rem; margin-bottom:8px;">
-                            Trước đây làm việc cá nhân qua <strong>SharePoint, Google Sheet</strong> rời rạc, khó theo dõi tiến độ và hay quên việc:
-                        </p>
-                        <div class="ui-mockup" style="margin-top:0;">
-                            <div class="ui-row"><strong style="color:#fff;">Paid Ads</strong><span>01 NS</span><span class="status-dot status-blue">CPL & Lead</span></div>
-                            <div class="ui-row"><strong style="color:#fff;">SEO & GEO</strong><span>01 NS</span><span class="status-dot status-green">Top & Traffic</span></div>
-                            <div class="ui-row"><strong style="color:#fff;">Content</strong><span>02 NS</span><span class="status-dot status-blue">Bài & Phễu</span></div>
-                            <div class="ui-row"><strong style="color:#fff;">Thiết Kế</strong><span>01 NS</span><span class="status-dot status-amber">Banner/Event</span></div>
-                        </div>
-                        <p class="card-text" style="font-size:0.72rem; color:var(--primary-light); margin-top:8px;">
-                            * Kỹ thuật Website, CRO trang đích & đo lường do tôi trực tiếp đảm nhiệm và hỗ trợ gỡ vướng cùng nhóm.
-                        </p>
-                    </div>
-
-                    <!-- Col 2: Lark & Lark Base Coordination -->
-                    <div class="card card-highlight">
-                        <div class="card-title">
-                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></span>
-                            <span>Giao Việc & Phối Hợp Trên Lark Base</span>
-                        </div>
-                        <p class="card-text" style="font-size:0.77rem;">
-                            Đưa <strong>Lark</strong> vào vận hành: giao việc trực tiếp trên Lark và để các nhân sự phối hợp công việc với nhau ngay trên <strong>Lark Base</strong>.
-                        </p>
-                        <div class="ui-mockup">
-                            <div class="ui-mockup-head">
-                                <span>Lark Base • Tiến Độ & Ghi Nhận Việc</span>
-                                <span style="color:#34d399;">● Đang vận hành</span>
-                            </div>
-                            <div class="ui-row"><span>Trang đích ISO</span><span>Ads/CRO</span><span class="status-dot status-green">Hoàn thành</span></div>
-                            <div class="ui-row"><span>Chuỗi bài ESG/CSR</span><span>Content</span><span class="status-dot status-blue">Đang làm</span></div>
-                            <div class="ui-row"><span>Ấn phẩm Webinar</span><span>Thiết kế</span><span class="status-dot status-green">Đúng hạn</span></div>
-                            <div class="ui-row"><span>Bộ từ khóa chủ lực</span><span>SEO</span><span class="status-dot status-amber">Rà soát tuần</span></div>
-                        </div>
-                    </div>
-
-                    <!-- Col 3: Operational Outcomes on Lark -->
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box amber"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
-                            <span>Hiệu Quả Kiểm Soát Thực Tế</span>
-                        </div>
-                        <p class="card-text" style="font-size:0.77rem;">
-                            Chuyển toàn bộ đầu việc ra <strong>Lark</strong> giúp quản lý nắm bắt tiến độ tập trung, rõ người – rõ hạn hoàn thành.
-                        </p>
-                        <div class="kpi-mini-grid">
-                            <div class="kpi-mini-box">
-                                <div class="kpi-mini-val" style="color:#38bdf8; font-size:0.9rem;">Tập Trung</div>
-                                <div class="kpi-mini-lbl">Thay SharePoint & Sheet</div>
-                            </div>
-                            <div class="kpi-mini-box">
-                                <div class="kpi-mini-val" style="font-size:0.9rem;">Không Trôi Việc</div>
-                                <div class="kpi-mini-lbl">Giao Trực Tiếp & Nhắc Hạn</div>
-                            </div>
-                            <div class="kpi-mini-box">
-                                <div class="kpi-mini-val" style="color:#fbbf24; font-size:0.9rem;">5 Nhân Sự</div>
-                                <div class="kpi-mini-lbl">Phối Hợp Trên Lark Base</div>
-                            </div>
-                            <div class="kpi-mini-box">
-                                <div class="kpi-mini-val" style="color:#e2e8f0; font-size:0.9rem;">Rõ Kết Quả</div>
-                                <div class="kpi-mini-lbl">Ghi Nhận Đầu Ra Công Việc</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout-strip">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12z"/></svg>
-                    <div><strong>Ứng dụng AI hỗ trợ nhóm:</strong> Trực tiếp hướng dẫn nhân sự sử dụng <strong>Claude, ChatGPT, Gemini</strong> hỗ trợ đọc tài liệu, lên dàn ý bài viết chuyên môn và rà soát kỹ trước khi đăng.</div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
-                <div>08 / 10 • Team Management & Workflow on Lark / Lark Base</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 09: 30-60-90 DAY PLAN ================= -->
-        <section class="slide" id="slide-9">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Kế Hoạch Hành Động Khi Nhận Việc</span>
-                    <div class="slide-title">Lộ Trình Tiếp Quản & Tăng Trưởng 30 – 60 – 90 Ngày Đầu Tiên</div>
-                    <div class="slide-subtitle">Bắt nhịp nhanh, xử lý ngay điểm lãng phí ngân sách trong tháng đầu và chuẩn hóa hệ thống bền vững</div>
-                </div>
-                <div class="slide-number-tag">09 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="timeline-box">
-                    <div class="timeline-card">
-                        <div class="timeline-phase">Giai đoạn 01 • Ngày 01 – 30</div>
-                        <div class="timeline-title">Rà Soát Hiện Trạng & Cắt Lãng Phí</div>
-                        <ul class="bullet-list">
-                            <li><strong>Kiểm tra tài khoản & website:</strong> Kiểm tra toàn diện tài khoản Google Ads, Meta Ads, cấu trúc SEO website và độ chính xác của GTM/GA4/Pixel.</li>
-                            <li><strong>Làm việc cùng Sales & BGĐ:</strong> Thống nhất định mức CPL trần, CIR mục tiêu và rà soát lịch sử chất lượng khách hàng thực tế.</li>
-                            <li><strong>Cắt lãng phí ngay:</strong> Tắt các nhóm quảng cáo/từ khóa lệch tệp, tinh chỉnh form lọc để tối ưu chi phí ngay trong 30 ngày đầu.</li>
-                        </ul>
-                    </div>
-
-                    <div class="timeline-card month60">
-                        <div class="timeline-phase">Giai đoạn 02 • Ngày 31 – 60</div>
-                        <div class="timeline-title">Chuẩn Hóa Phễu, SOP & Báo Cáo</div>
-                        <ul class="bullet-list">
-                            <li><strong>Tối ưu CRO Landing Page:</strong> Nâng cấp trang đích riêng cho các sản phẩm/dịch vụ chủ lực có biên lợi nhuận cao.</li>
-                            <li><strong>Tổ chức giao việc rõ ràng:</strong> Thiết lập bảng phân công, duyệt bài – ấn phẩm và theo dõi tiến độ từng vị trí trên Lark Base.</li>
-                            <li><strong>Báo cáo & Đối soát tuần:</strong> Bàn giao Dashboard Looker Studio cho BGĐ; vận hành lịch họp đối soát MQL ➔ SQL hàng tuần với Sales.</li>
-                        </ul>
-                    </div>
-
-                    <div class="timeline-card month90">
-                        <div class="timeline-phase">Giai đoạn 03 • Ngày 61 – 90</div>
-                        <div class="timeline-title">Mở Rộng Quy Mô & Bền Vững</div>
-                        <ul class="bullet-list">
-                            <li><strong>Mở rộng kênh hiệu quả:</strong> Điều chuyển và mở rộng ngân sách vào các chiến dịch/dịch vụ đạt tỷ lệ ký kết hợp đồng tốt nhất.</li>
-                            <li><strong>Phát triển SEO, GEO & Sự kiện:</strong> Đẩy mạnh cụm từ khóa mua hàng lên Top và triển khai chuỗi Hội thảo/Webinar hoặc chiến dịch mùa vụ.</li>
-                            <li><strong>Tối ưu hiệu suất nhóm:</strong> Kèm cặp chuyên môn và áp dụng AI chuẩn hóa quy trình sản xuất nội dung cho toàn phòng.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="callout-strip">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
-                    <div><strong>Cam kết thực thi:</strong> Không quản lý xa rời thực tế — trực tiếp xắn tay kiểm tra tài khoản, sửa Landing Page, dựng hệ thống báo cáo và đồng hành cùng đội ngũ đạt mục tiêu doanh số của Ban Giám đốc.</div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
-                <div>09 / 10 • First 90-Day Onboarding & Execution Roadmap</div>
-            </div>
-        </section>
-
-        <!-- ================= SLIDE 10: EDUCATION & CONTACT ================= -->
-        <section class="slide" id="slide-10">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-badge">Học Vấn, Đào Tạo & Thông Tin Liên Hệ</span>
-                    <div class="slide-title">Nền Tảng Chuyên Môn & Kết Nối Trao Đổi Trực Tiếp</div>
-                    <div class="slide-subtitle">Sẵn sàng đồng hành cùng mục tiêu tăng trưởng doanh thu và chuẩn hóa bộ phận Marketing của Quý Doanh nghiệp</div>
-                </div>
-                <div class="slide-number-tag">10 / 10</div>
-            </div>
-
-            <div class="slide-body">
-                <div class="grid-2" style="flex:1;">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></span>
-                            <span>Học Vấn & Chứng Nhận Đào Tạo</span>
-                        </div>
-                        <ul class="bullet-list" style="gap:12px;">
-                            <li>
-                                <strong style="color:#fff;">CAO ĐẲNG FPT POLYTECHNIC (2016 – 2019)</strong><br>
-                                Chuyên ngành: <strong>Ứng dụng Phần mềm</strong>.<br>
-                                Nền tảng lập trình, tư duy cấu trúc cơ sở dữ liệu và kỹ thuật web — ứng dụng trực tiếp vào việc triển khai Technical SEO, Tracking và tự động hóa quy trình.
-                            </li>
-                            <li>
-                                <strong style="color:#fff;">GIGAN TRAINING CENTER — Chứng nhận hoàn thành khóa đào tạo</strong><br>
-                                • <strong>Project Management (12/2023):</strong> Quản lý tiến độ dự án, phân bổ nguồn lực & quản trị nhân sự.<br>
-                                • <strong>Authentic Branding (11/2023):</strong> Tư duy định vị, nhất quán thông điệp & xây dựng thương hiệu.
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="card card-highlight" style="display:flex; flex-direction:column; justify-content:space-between;">
-                        <div>
-                            <div class="card-title">
-                                <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
-                                <span>Thông Tin Liên Hệ & Tài Liệu Đính Kèm</span>
-                            </div>
-                            <ul class="bullet-list" style="gap:9px; font-size:0.84rem;">
-                                <li><strong>Ứng viên:</strong> Nguyễn Văn Vượng (Năm sinh: 1998)</li>
-                                <li><strong>Vị trí ứng tuyển:</strong> Trưởng Phòng Marketing</li>
-                                <li><strong>Điện thoại / Zalo:</strong> <a href="tel:0868772540" style="color:#38bdf8; font-weight:800; text-decoration:none;">0868.772.540</a></li>
-                                <li><strong>Email:</strong> <a href="mailto:vuongnv.upgrade@gmail.com" style="color:#38bdf8; font-weight:700; text-decoration:none;">vuongnv.upgrade@gmail.com</a></li>
-                                <li><strong>Địa chỉ:</strong> Định Công, Hoàng Mai, Hà Nội</li>
-                            </ul>
-                        </div>
-
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;">
-                            <a href="index.html" style="background:var(--primary); color:#fff; text-decoration:none; padding:10px 12px; border-radius:7px; font-size:0.78rem; font-weight:800; text-align:center;">
-                                Mở Web Portfolio Tương Tác ➔
-                            </a>
-                            <a href="assets/CV_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download style="background:rgba(255,255,255,0.08); border:1px solid var(--border); color:#fff; text-decoration:none; padding:10px 12px; border-radius:7px; font-size:0.78rem; font-weight:800; text-align:center;">
-                                Tải Bản CV 2 Trang (PDF)
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="callout-strip" style="justify-content:center; text-align:center; border-left-width:1px; border-color:rgba(56, 189, 248, 0.35);">
-                    <div style="font-weight:700; color:#fff;">
-                        Trân trọng cảm ơn Quý Ban Giám Đốc đã dành thời gian xem xét Hồ sơ Năng lực — Rất mong có cơ hội trao đổi trực tiếp!
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide-footer">
-                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing • 0868.772.540</div>
-                <div>10 / 10 • Education, Certifications & Contact</div>
-            </div>
-        </section>
-
-    </div>
-
-    <script>
-        (function () {
-            const slides = Array.from(document.querySelectorAll('.slide'));
-            const counter = document.getElementById('slideCounter');
-            const prevBtn = document.getElementById('prevSlideBtn');
-            const nextBtn = document.getElementById('nextSlideBtn');
-            let currentIdx = 0;
-
-            function updateCounter(idx) {
-                currentIdx = Math.max(0, Math.min(slides.length - 1, idx));
-                const num = String(currentIdx + 1).padStart(2, '0');
-                const total = String(slides.length).padStart(2, '0');
-                if (counter) counter.textContent = num + ' / ' + total;
-            }
-
-            function goToSlide(idx) {
-                const target = Math.max(0, Math.min(slides.length - 1, idx));
-                slides[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                updateCounter(target);
-            }
-
-            if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIdx - 1));
-            if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIdx + 1));
-
-            window.addEventListener('scroll', () => {
-                const mid = window.scrollY + window.innerHeight * 0.35;
-                slides.forEach((s, i) => {
-                    if (mid >= s.offsetTop && mid < s.offsetTop + s.offsetHeight + 32) {
-                        updateCounter(i);
-                    }
-                });
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight' || e.key === 'PageDown') {
-                    e.preventDefault();
-                    goToSlide(currentIdx + 1);
-                } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-                    e.preventDefault();
-                    goToSlide(currentIdx - 1);
-                }
-            });
-        })();
-    </script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Năng Lực Quản Trị Marketing — Nguyễn Văn Vượng</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg-dark: #070b14;
+            --bg-slide: #0b1221;
+            --bg-card: #111c30;
+            --bg-card-alt: #16243d;
+            --primary: #0284c7;
+            --primary-light: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.14);
+            --accent: #10b981;
+            --amber: #f59e0b;
+            --text-main: #f8fafc;
+            --text-body: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border: #243552;
+            --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.48;
+        }
+
+        /* Top Control Bar (Hidden in Print) */
+        .deck-controls {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 54px;
+            background: rgba(11, 18, 33, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 1000;
+        }
+
+        .deck-controls .title {
+            font-size: 0.86rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.2px;
+        }
+
+        .deck-controls .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-ctrl {
+            background: var(--bg-card-alt);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 6px 13px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .btn-ctrl:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-ctrl-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-ctrl-primary:hover {
+            background: #0369a1;
+        }
+
+        .slide-nav-pill {
+            display: inline-flex;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .slide-nav-pill button {
+            background: transparent;
+            border: none;
+            color: var(--text-body);
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .slide-nav-pill button:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .slide-counter {
+            font-size: 0.8rem;
+            color: var(--primary-light);
+            font-weight: 800;
+            padding: 0 10px;
+            min-width: 66px;
+            text-align: center;
+        }
+
+        /* Presentation Container */
+        .presentation {
+            padding-top: 74px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            padding-bottom: 60px;
+        }
+
+        /* Individual 16:9 Slide (1200 x 675) */
+        .slide {
+            width: 1200px;
+            height: 675px;
+            background: radial-gradient(circle at 88% 12%, rgba(2, 132, 199, 0.12) 0%, transparent 45%),
+                        linear-gradient(155deg, #0b1221 0%, #0f172a 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+            position: relative;
+            overflow: hidden;
+            padding: 36px 48px 28px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            scroll-margin-top: 68px;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 55%, var(--accent) 100%);
+        }
+
+        /* Slide Header */
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.65);
+            padding-bottom: 14px;
+        }
+
+        .slide-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            color: var(--primary-light);
+            background: var(--primary-glow);
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            margin-bottom: 5px;
+        }
+
+        .slide-title {
+            font-size: 1.38rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.4px;
+        }
+
+        .slide-subtitle {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .slide-number-tag {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border);
+            padding: 5px 12px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        /* Slide Body */
+        .slide-body {
+            flex: 1;
+            padding: 18px 0 14px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        /* Slide Footer */
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.73rem;
+            color: #64748b;
+            border-top: 1px solid rgba(51, 65, 85, 0.55);
+            padding-top: 9px;
+        }
+
+        /* Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-2-wide-right {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 20px;
+            position: relative;
+        }
+
+        .card-highlight {
+            background: linear-gradient(150deg, #13233b 0%, #0f1b2e 100%);
+            border-color: rgba(56, 189, 248, 0.42);
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-box {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: rgba(56, 189, 248, 0.14);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-light);
+            flex-shrink: 0;
+        }
+
+        .icon-box.green {
+            background: rgba(16, 185, 129, 0.14);
+            border-color: rgba(16, 185, 129, 0.35);
+            color: #34d399;
+        }
+
+        .icon-box.amber {
+            background: rgba(245, 158, 11, 0.14);
+            border-color: rgba(245, 158, 11, 0.35);
+            color: #fbbf24;
+        }
+
+        .card-text {
+            font-size: 0.81rem;
+            color: var(--text-body);
+            line-height: 1.54;
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            font-size: 0.8rem;
+            color: var(--text-body);
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 14px;
+            line-height: 1.48;
+        }
+
+        .bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--primary-light);
+        }
+
+        /* Cover Slide */
+        .cover-grid {
+            display: grid;
+            grid-template-columns: 155px 1fr 220px;
+            align-items: center;
+            gap: 28px;
+            margin: auto 0;
+        }
+
+        .cover-avatar-wrap {
+            position: relative;
+            text-align: center;
+        }
+
+        .cover-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3.5px solid var(--primary-light);
+            box-shadow: 0 0 28px var(--primary-glow);
+        }
+
+        .cover-status {
+            display: inline-block;
+            margin-top: -12px;
+            position: relative;
+            background: #059669;
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 2px solid var(--bg-slide);
+        }
+
+        .cover-info h1 {
+            font-size: 1.95rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+            line-height: 1.18;
+        }
+
+        .cover-role {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-top: 6px;
+        }
+
+        .cover-desc {
+            font-size: 0.84rem;
+            color: var(--text-body);
+            margin-top: 12px;
+            line-height: 1.56;
+        }
+
+        .cover-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .cover-contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cover-contact-item strong {
+            color: #fff;
+        }
+
+        /* QR / Digital Card */
+        .qr-card {
+            background: linear-gradient(155deg, #13233b 0%, #0e192b 100%);
+            border: 1px solid rgba(56, 189, 248, 0.38);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qr-svg-box {
+            background: #fff;
+            padding: 8px;
+            border-radius: 8px;
+            width: 96px;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-label {
+            font-size: 0.73rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .qr-link-btn {
+            display: inline-block;
+            width: 100%;
+            background: rgba(2, 132, 199, 0.22);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 5px 8px;
+            border-radius: 5px;
+        }
+
+        /* Metric Strip */
+        .metric-banner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .metric-box {
+            background: rgba(22, 36, 61, 0.78);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 13px 14px;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+        }
+
+        .metric-val {
+            font-size: 1.48rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.4px;
+        }
+
+        .metric-lbl {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .metric-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Tool Pills */
+        .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .tool-pill {
+            font-size: 0.71rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 4px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--border);
+            color: #e2e8f0;
+        }
+
+        /* Funnel Row */
+        .funnel-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .funnel-col {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 13px 14px;
+            position: relative;
+        }
+
+        .funnel-col::after {
+            content: '➔';
+            position: absolute;
+            right: -11px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-light);
+            font-size: 0.85rem;
+            font-weight: 800;
+            z-index: 2;
+        }
+
+        .funnel-col:last-child::after {
+            display: none;
+        }
+
+        .funnel-step-tag {
+            font-size: 0.66rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            text-transform: uppercase;
+        }
+
+        .funnel-step-name {
+            font-size: 0.86rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 4px 0 5px 0;
+        }
+
+        .funnel-step-desc {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            line-height: 1.42;
+        }
+
+        /* Mini UI Mockups (Slide 8 & Slide 5) */
+        .ui-mockup {
+            background: #09101d;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 11px 12px;
+            margin-top: 10px;
+            font-size: 0.71rem;
+        }
+
+        .ui-mockup-head {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 800;
+            color: #e2e8f0;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 6px;
+            margin-bottom: 7px;
+        }
+
+        .ui-row {
+            display: grid;
+            grid-template-columns: 1.5fr 0.7fr 0.8fr;
+            gap: 6px;
+            padding: 4px 0;
+            border-bottom: 1px dashed rgba(51, 65, 85, 0.45);
+            color: #cbd5e1;
+            align-items: center;
+        }
+
+        .ui-row:last-child {
+            border-bottom: none;
+        }
+
+        .status-dot {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .status-green { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+        .status-blue { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
+        .status-amber { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
+
+        .kpi-mini-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .kpi-mini-box {
+            background: #09101d;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 8px 10px;
+        }
+
+        .kpi-mini-val {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #34d399;
+        }
+
+        .kpi-mini-lbl {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Note Callout Strip */
+        .callout-strip {
+            background: rgba(17, 28, 48, 0.92);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary-light);
+            border-radius: 8px;
+            padding: 11px 16px;
+            font-size: 0.79rem;
+            color: var(--text-body);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Timeline 30-60-90 */
+        .timeline-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            flex: 1;
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 20px;
+            border-top: 4px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timeline-card.month60 { border-top-color: var(--accent); }
+        .timeline-card.month90 { border-top-color: var(--amber); }
+
+        .timeline-phase {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .timeline-card.month60 .timeline-phase { color: #34d399; }
+        .timeline-card.month90 .timeline-phase { color: #fbbf24; }
+
+        .timeline-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 4px 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+        }
+
+        /* Print Mode: Exact 10-page 16:9 Landscape PDF (Pure Vector Optimized) */
+        @media print {
+            @page {
+                size: 16in 9in;
+                margin: 0;
+            }
+
+            *, *::before, *::after {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+                filter: none !important;
+                backdrop-filter: none !important;
+            }
+
+            html, body {
+                width: 16in !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #0b1221 !important;
+                background-image: none !important;
+            }
+
+            .deck-controls {
+                display: none !important;
+            }
+
+            .presentation {
+                padding: 0 !important;
+                gap: 0 !important;
+                display: block !important;
+            }
+
+            .slide {
+                width: 16in !important;
+                height: 9in !important;
+                border-radius: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                page-break-inside: avoid !important;
+                padding: 0.48in 0.62in 0.38in 0.62in !important;
+                background: #0b1221 !important;
+                background-image: none !important;
+            }
+
+            .slide::before {
+                background: #0284c7 !important;
+                background-image: none !important;
+            }
+
+            .card {
+                background: #111c30 !important;
+                background-image: none !important;
+                box-shadow: none !important;
+            }
+
+            .card-highlight {
+                background: #16243d !important;
+                background-image: none !important;
+                border-color: #38bdf8 !important;
+            }
+
+            .metric-banner, .qr-card {
+                background: #13233b !important;
+                background-image: none !important;
+                box-shadow: none !important;
+            }
+
+            .cover-avatar {
+                box-shadow: none !important;
+            }
+
+            .callout-strip, .timeline-card, .metric-box, .kpi-mini-box, .ui-mockup {
+                box-shadow: none !important;
+                background-image: none !important;
+            }
+
+            .slide:last-child {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP CONTROLS -->
+    <div class="deck-controls">
+        <div class="title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
+            <span>PORTFOLIO PITCH DECK — NGUYỄN VĂN VƯỢNG (TRƯỞNG PHÒNG MARKETING)</span>
+        </div>
+        <div class="nav-buttons">
+            <div class="slide-nav-pill" title="Dùng phím mũi tên Trái / Phải để chuyển Slide">
+                <button type="button" id="prevSlideBtn" aria-label="Slide trước">◀</button>
+                <span class="slide-counter" id="slideCounter">01 / 09</span>
+                <button type="button" id="nextSlideBtn" aria-label="Slide tiếp">▶</button>
+            </div>
+            <a href="assets/Portfolio_Nguyen_Van_Vuong_Truong_Phong_Marketing.pdf" download class="btn-ctrl btn-ctrl-primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                <span>Tải PDF Chuẩn</span>
+            </a>
+            <button type="button" class="btn-ctrl" onclick="window.print()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                <span>In (16:9)</span>
+            </button>
+            <a href="index.html" class="btn-ctrl">
+                <span>Web Portfolio</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- PRESENTATION SLIDES -->
+    <div class="presentation">
+
+        <!-- ================= SLIDE 01 ================= -->
+        <!-- ================= SLIDE 01: COVER ================= -->
+        <section class="slide" id="slide-1">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Hồ Sơ Năng Lực Quản Trị Marketing • 2026</span>
+                    <div class="slide-title">NGUYỄN VĂN VƯỢNG</div>
+                    <div class="slide-subtitle">Ứng tuyển: Trưởng Phòng Marketing (Marketing Manager / Head of Marketing)</div>
+                </div>
+                <div class="slide-number-tag">01 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="cover-grid">
+                    <div class="cover-avatar-wrap">
+                        <img src="assets/avatar.jpg" alt="Nguyễn Văn Vượng" class="cover-avatar">
+                    </div>
+
+                    <div class="cover-info">
+                        <h1>QUẢN TRỊ NGÂN SÁCH BÁM SÁT DOANH THU<br>&amp; ĐỒNG BỘ HIỆU QUẢ CÙNG KINH DOANH</h1>
+                        <div class="cover-role">Thực Chiến Đa Mô Hình B2B &amp; Chuỗi Bán Lẻ B2C • Tổ Chức Đội Ngũ &amp; Tự Động Hóa Hệ Thống</div>
+                        <p class="cover-desc">
+                            Hơn 7 năm kinh nghiệm Marketing (4+ năm vị trí Quản lý / Phó phòng phụ trách chung báo cáo trực tiếp Ban Giám đốc). Thế mạnh cốt lõi: Hoạch định kế hoạch và quản trị ngân sách theo hiệu quả doanh thu thực tế; tổ chức, đào tạo đội ngũ in-house; phát triển chiến lược đa kênh (Quảng cáo, SEO &amp; GEO) và ứng dụng AI Agent &amp; Lark Base chuẩn hóa vận hành.
+                        </p>
+                        <div class="cover-contact">
+                            <div class="cover-contact-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#38bdf8"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                                <span>SĐT/Zalo: <strong>0868.772.540</strong></span>
+                            </div>
+                            <div class="cover-contact-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#38bdf8"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                <span>Email: <strong>vuongnv.upgrade@gmail.com</strong></span>
+                            </div>
+                            <div class="cover-contact-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                <span>Định Công, Hoàng Mai, <strong>Hà Nội</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qr-card">
+                        <div class="qr-svg-box">
+                            <img src="assets/qr_portfolio.svg" width="80" height="80" alt="QR Code Portfolio" style="display:block;">
+                        </div>
+                        <div class="qr-label">Hồ Sơ Tương Tác Số</div>
+                        <a href="index.html" class="qr-link-btn">Mở Web Portfolio ➔</a>
+                        <a href="assets/CV_Nguyen_Van_Vuong_Truong_Phong_Marketing_Quan_Tri.pdf" download class="qr-link-btn" style="background:transparent;">Tải CV Quản Trị (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="metric-banner">
+                    <div class="metric-box">
+                        <div class="metric-val">7 Năm</div>
+                        <div class="metric-lbl">Kinh Nghiệm Thực Chiến</div>
+                        <div class="metric-sub">Trong đó 4+ năm vị trí Quản lý</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">350 – 400Tr</div>
+                        <div class="metric-lbl">Ngân Sách Quản Trị / Tháng</div>
+                        <div class="metric-sub">Kiểm soát chặt tỷ lệ chi phí / doanh thu</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">5 Nhân Sự</div>
+                        <div class="metric-lbl">Quy Mô Đội Ngũ Phụ Trách</div>
+                        <div class="metric-sub">Ads, SEO, Content, Thiết kế</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">B2B &amp; B2C</div>
+                        <div class="metric-lbl">Đa Mô Hình Kinh Doanh</div>
+                        <div class="metric-sub">Dịch vụ DN &amp; Bán lẻ chuỗi 3 điểm</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
+                <div>Executive Portfolio Deck • Chuẩn Hóa Bảo Mật Dữ Liệu (NDA)</div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 02 ================= -->
+        <!-- ================= SLIDE 02: EXECUTIVE SUMMARY & USP ================= -->
+        <section class="slide" id="slide-2">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Định Vị Quản Trị & Lợi Thế Cạnh Tranh</span>
+                    <div class="slide-title">Chân Dung Quản Trị & 3 Trụ Cột Khác Biệt</div>
+                    <div class="slide-subtitle">Giải bài toán tăng trưởng thực chất bằng kỷ luật quản trị ngân sách, tổ chức bộ máy chuẩn SOP kết hợp công nghệ/AI và sự đồng bộ sát sao cùng khối Kinh doanh</div>
+                </div>
+                <div class="slide-number-tag">02 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="grid-3" style="flex:1;">
+                    <div class="card card-highlight">
+                        <div class="card-title">
+                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg></span>
+                            <span>1. Hoạch Định & Kỷ Luật Ngân Sách</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Lập kế hoạch tiếp thị bám sát mục tiêu doanh thu cùng Ban Giám đốc; tối ưu hóa chi phí và kiểm soát định mức chỉ tiêu tài chính.</li>
+                            <li>Thiết lập Dashboard quản trị trên <strong>Looker Studio</strong> theo dõi chi phí – hiệu quả hàng ngày, kịp thời ra quyết định điều chỉnh dòng tiền.</li>
+                            <li>Kinh nghiệm thực tế kiểm soát ngân sách tiếp thị từ <strong>~300 triệu/tháng (Chuỗi bán lẻ B2C)</strong> đến <strong>350 – 400 triệu/tháng (Dịch vụ B2B)</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-highlight">
+                        <div class="card-title">
+                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></span>
+                            <span>2. Tổ Chức Bộ Máy, SOP & Hệ Thống AI</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Tuyển dụng, đào tạo chuyên môn và xây dựng khung KPI minh bạch cho đội ngũ nhân sự in-house.</li>
+                            <li>Số hóa toàn diện quy trình giao việc (SOP), quản trị tiến độ và phê duyệt ấn phẩm tập trung trên <strong>Lark Base</strong>.</li>
+                            <li>Phát huy tư duy hệ thống triển khai <strong>AI Agent & tự động hóa</strong> giúp nâng cao năng suất bộ máy và chủ động thẩm định đối tác kỹ thuật.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-highlight">
+                        <div class="card-title">
+                            <span class="icon-box amber"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
+                            <span>3. Đồng Bộ Doanh Số Cùng Kinh Doanh</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Không chạy theo số lượng khách hàng tiềm năng ảo; chủ trì đối soát chất lượng chuyển đổi sang hợp đồng thực tế hàng tuần cùng bộ phận Sales.</li>
+                            <li>Điều chuyển ngân sách tức thời vào các nhóm dịch vụ dễ chốt hợp đồng hoặc thúc đẩy giải phóng tồn kho tại điểm bán.</li>
+                            <li>Đồng hành sát sao cùng khối Kinh doanh nắm bắt phản hồi thị trường nhằm tối ưu hóa thông điệp và tài liệu bán hàng.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="callout-strip">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12 2L1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>
+                    <div><strong>Phương châm & Phong cách quản trị:</strong> Quản trị minh bạch bằng số liệu và quy trình; lấy doanh thu thực tế và hiệu quả chi phí làm thước đo; sâu sát đào tạo đội ngũ và phối hợp chặt chẽ cùng bộ phận Kinh doanh.</div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
+                <div>02 / 09 • Executive Summary & Core Philosophy</div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 03 ================= -->
+        <!-- ================= SLIDE 03: MARTECH & OPS ARCHITECTURE ================= -->
+        <section class="slide" id="slide-3">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Kiến Trúc Vận Hành &amp; Công Cụ</span>
+                    <div class="slide-title">Hệ Thống Công Cụ &amp; Quản Trị Vận Hành</div>
+                    <div class="slide-subtitle">Vận hành khép kín 3 tầng từ Thu hút đa kênh, Tối ưu chuyển đổi &amp; Đo lường đến Quản trị SOP &amp; AI Agent</div>
+                </div>
+                <div class="slide-number-tag">03 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="grid-3" style="flex:1;">
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg></span>
+                            <span>TẦNG 1: THU HÚT ĐA KÊNH</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Paid Ads (Google &amp; Meta):</strong> Trực tiếp hoạch định &amp; tối ưu Google Ads (Search, PMax) và Meta Ads, kiểm soát chặt chi phí trên mỗi khách hàng tiềm năng.</li>
+                            <li><strong>SEO &amp; GEO (Semrush &amp; GSC):</strong> Nghiên cứu từ khóa thương mại, tối ưu cấu trúc web đưa từ khóa chủ lực lên Top Google &amp; nền tảng tìm kiếm AI.</li>
+                            <li><strong>Phễu Nội Dung &amp; Hội Thảo B2B:</strong> Tuyến bài chuyên môn giải quyết bài toán thực tế doanh nghiệp, phối hợp tổ chức chuỗi Hội thảo &amp; Webinar thu hút khách hàng B2B.</li>
+                        </ul>
+                        <div class="pill-group">
+                            <span class="tool-pill">Google Ads (Search, PMax)</span>
+                            <span class="tool-pill">Meta Ads (Facebook Ads)</span>
+                            <span class="tool-pill">Semrush &amp; Search Console</span>
+                        </div>
+                    </div>
+
+                    <div class="card card-highlight">
+                        <div class="card-title">
+                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></span>
+                            <span>TẦNG 2: WEBSITE, CHUYỂN ĐỔI &amp; TRACKING</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Landing Page &amp; CRO:</strong> Thiết kế trang đích chuẩn SEO/CRO cho từng dòng sản phẩm/tiêu chuẩn, kèm form khảo sát phân loại quy mô doanh nghiệp.</li>
+                            <li><strong>Đo Lường &amp; Tracking (GTM / GA4 / Pixel):</strong> Thiết lập theo dõi chuyển đổi chi tiết qua GTM, Google Analytics 4, Meta Pixel (Enhanced &amp; Offline Conversions).</li>
+                            <li><strong>Kỹ Thuật Web WordPress:</strong> Tự chủ vận hành, quản trị website và trang đích trên nền tảng WordPress; chủ động xử lý sự cố kỹ thuật, hosting &amp; bảo mật.</li>
+                        </ul>
+                        <div class="pill-group">
+                            <span class="tool-pill">WordPress &amp; Landing Page</span>
+                            <span class="tool-pill">Google Tag Manager (GTM)</span>
+                            <span class="tool-pill">GA4 &amp; Meta Pixel</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box amber"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></span>
+                            <span>TẦNG 3: QUẢN TRỊ SOP, BI &amp; AI AGENT</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Quản Trị SOP Trên Lark Base:</strong> Số hóa toàn diện quy trình giao việc, kiểm duyệt ấn phẩm và theo dõi tiến độ thời gian thực trên <strong>Lark Suite &amp; Lark Base</strong>.</li>
+                            <li><strong>Báo Cáo Quản Trị BI (Looker Studio):</strong> Tự động đồng bộ dữ liệu đa kênh về <strong>Looker Studio</strong>, trực quan hóa chi phí – sản lượng – doanh thu phục vụ Ban Giám đốc.</li>
+                            <li><strong>AI Agent &amp; Bot API:</strong> Triển khai Bot Telegram cảnh báo từ khóa lãng phí hàng ngày, luồng tự động xuất bản bài viết và đào tạo đội ngũ dùng <strong>Claude / ChatGPT / Gemini</strong>.</li>
+                        </ul>
+                        <div class="pill-group">
+                            <span class="tool-pill">Lark Base &amp; Lark Suite</span>
+                            <span class="tool-pill">Looker Studio (BI)</span>
+                            <span class="tool-pill">AI Agent &amp; Bot API</span>
+                            <span class="tool-pill">Claude, ChatGPT, Gemini</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout-strip">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#34d399"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    <div><strong>Giá trị thực tế:</strong> Khả năng làm chủ kỹ thuật web, dữ liệu đo lường và quy trình SOP &amp; AI giúp phòng Marketing vận hành tự chủ 100%, tiết kiệm chi phí thuê ngoài và minh bạch số liệu chi phí – hiệu quả với Ban Giám đốc.</div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
+                <div>03 / 09 • MarTech &amp; Operations Architecture</div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 04 ================= -->
+        <!-- ================= SLIDE 04: CASE STUDY 1 (KNA PART 1) ================= -->
+        <section class="slide" id="slide-4">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Case Study 01 • Dịch Vụ Doanh Nghiệp B2B</span>
+                    <div class="slide-title">KNA CERT: Chiến Lược Phễu B2B Đa Tầng Lọc Đúng Nhu Cầu Thật</div>
+                    <div class="slide-subtitle">08/2024 – Hiện tại • Phó Phòng Marketing (Phụ trách chung bộ phận Marketing — Báo cáo trực tiếp Ban Giám đốc)</div>
+                </div>
+                <div class="slide-number-tag">04 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="grid-2" style="flex:1;">
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box amber"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></span>
+                            <span>Bối Cảnh & Bài Toán Khó Ngành B2B</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Lĩnh vực hoạt động:</strong> Đào tạo & Chứng nhận Tiêu chuẩn Quốc tế B2B (ISO 9001, 14001, 22000, WRAP, Sedex, BSCI, ESG...).</li>
+                            <li><strong>Quy mô quản trị:</strong> Quản lý ngân sách <strong>350 – 400 triệu VNĐ/tháng</strong>; điều hành đội ngũ in-house <strong>5 nhân sự</strong> (Quảng cáo, SEO, Nội dung, Thiết kế), kiểm soát <strong>tỷ lệ chi phí / doanh thu duy trì 15% – 18%</strong>.</li>
+                            <li><strong>Nút thắt ban đầu:</strong> Kênh Google Ads bị nghẽn ở mức ~100 triệu/tháng do chi phí trên mỗi khách hàng tiềm năng bị đẩy lên quá cao (~1,29 triệu/khách), đo lường chuyển đổi sai lệch khiến máy học Google nhận sai tín hiệu và không thể mở rộng ngân sách.</li>
+                            <li><strong>Đặc thù khách hàng B2B:</strong> Doanh nghiệp xuất khẩu chịu áp lực kiểm xưởng gấp, e ngại thủ tục rườm rà và trễ hạn bàn giao; quảng cáo dễ bị lẫn tệp tìm kiếm tài liệu tham khảo miễn phí.</li>
+                            <li><strong>Định vị thông điệp:</strong> Nhấn mạnh <em>Sự chuẩn mực quốc tế, Tiến độ thẩm định cam kết và Đội ngũ chuyên gia thực chiến đồng hành</em> giải quyết trọn vẹn rủi ro cho nhà máy.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-highlight">
+                        <div class="card-title">
+                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg></span>
+                            <span>Chiến Lược Giải Quyết Trực Tiếp</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Tháo gỡ nút thắt Google Ads:</strong> Chuẩn hóa đo lường dữ liệu khách thật (Enhanced & Offline Conversions) cấp tín hiệu sạch cho Google; cấu trúc lại chiến dịch <strong>hạ chi phí/khách từ 1,29Tr xuống 450K – 550K (điểm rơi 466K), nâng ngân sách Google Ads lên 300 – 330Tr/tháng</strong>.</li>
+                            <li><strong>Tự chủ hệ thống Website trên WordPress:</strong> Thiết kế lại giao diện tối ưu trải nghiệm và chuyển đổi, tái cấu trúc chuẩn SEO, xử lý dứt điểm lỗi kỹ thuật và chuyển hướng website cũ sang nền tảng WordPress mới; <strong>dứt điểm phụ thuộc đơn vị ngoài</strong> khi nâng cấp.</li>
+                            <li><strong>Trang đích chuyên biệt & Lọc khách thật:</strong> Thiết kế Landing Page riêng cho từng tiêu chuẩn chứng nhận kết hợp <strong>bộ câu hỏi lọc quy mô doanh nghiệp ngay trên biểu mẫu</strong> để tập trung tư vấn đúng khách hàng doanh nghiệp tiềm năng.</li>
+                            <li><strong>Hội thảo, Phễu tài liệu & Brand Guideline:</strong> Chủ trì chuỗi Webinar chuyên ngành (<strong>200 – 300 đăng ký/kỳ</strong>) & phễu tài liệu (200 – 250 khách/tháng) nuôi dưỡng qua hệ thống; hoàn thiện bộ quy chuẩn thương hiệu <a href="https://drive.google.com/file/d/1i758-ZRrPiaOScOJ_0ER_gYrpDM1UXJw/view?usp=sharing" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;">Brand Guideline (PDF) ↗</a>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="funnel-row">
+                    <div class="funnel-col">
+                        <div class="funnel-step-tag">Tầng 01 • Thu Hút Tự Nhiên</div>
+                        <div class="funnel-step-name">SEO, GEO & Nội Dung</div>
+                        <div class="funnel-step-desc">Đón tệp tra cứu tiêu chuẩn ISO/CSR/ESG tự nhiên, tối ưu ngân sách quảng cáo.</div>
+                    </div>
+                    <div class="funnel-col">
+                        <div class="funnel-step-tag">Tầng 02 • Xây Dựng Uy Tín</div>
+                        <div class="funnel-step-name">Hội Thảo & Webinar</div>
+                        <div class="funnel-step-desc">Giải đáp tiêu chuẩn mới trực tiếp & trực tuyến cho cấp quản lý, chủ nhà máy.</div>
+                    </div>
+                    <div class="funnel-col">
+                        <div class="funnel-step-tag">Tầng 03 • Chuyển Đổi Cao</div>
+                        <div class="funnel-step-name">Ads + Trang Đích Riêng</div>
+                        <div class="funnel-step-desc">Từ khóa sát nhu cầu chứng nhận + Bộ câu hỏi lọc quy mô doanh nghiệp.</div>
+                    </div>
+                    <div class="funnel-col">
+                        <div class="funnel-step-tag">Tầng 04 • Chốt Hợp Đồng</div>
+                        <div class="funnel-step-name">Đối Soát Khách Thật Cùng Sales</div>
+                        <div class="funnel-step-desc">Họp đối soát dữ liệu hàng tuần, điều chuyển ngân sách vào dịch vụ dễ ký hợp đồng.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
+                <div>04 / 09 • Case Study 01: B2B Funnel Strategy (KNA Cert)</div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 05 ================= -->
+        <!-- ================= SLIDE 05: CASE STUDY 1 (KNA PART 2) ================= -->
+        <section class="slide" id="slide-5">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Case Study 01 • Dịch Vụ Doanh Nghiệp B2B (Tiếp Theo)</span>
+                    <div class="slide-title">KNA CERT: Cơ Chế Đồng Bộ Cùng Kinh Doanh (Sales) &amp; Kết Quả Hợp Đồng Thực Tế</div>
+                    <div class="slide-subtitle">Kiểm soát chặt ngân sách 350 – 400 triệu/tháng qua nhịp đối soát hàng tuần cùng bộ phận Kinh doanh</div>
+                </div>
+                <div class="slide-number-tag">05 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="grid-2-wide-right" style="flex:1;">
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg></span>
+                            <span>Cơ Chế Đồng Bộ Marketing – Sales Hàng Tuần</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Phân bổ ngân sách 350 – 400Tr mạch lạc:</strong> Google Ads chủ lực (<strong>300 – 330Tr</strong>), Phễu Lead Magnet Ebook (<strong>20 – 25Tr</strong>) và Truyền thông Webinar, SEO &amp; Vận hành (<strong>30 – 45Tr</strong>).</li>
+                            <li><strong>Họp đối soát data hàng tuần:</strong> Trực tiếp ngồi cùng đội Kinh doanh rà soát chất lượng khách tiềm năng chuyển đổi sang hợp đồng thực tế theo từng tiêu chuẩn (ISO 9001, 14001, 22000, CSR...).</li>
+                            <li><strong>Điều chuyển ngân sách tức thời:</strong> Dịch vụ nào đang có nhu cầu thị trường tốt và tỷ lệ chốt hợp đồng cao được ưu tiên dồn ngân sách ngay trong tuần.</li>
+                            <li><strong>Báo cáo Looker Studio &amp; đào tạo AI:</strong> Theo dõi sản lượng và chi phí hàng ngày trên Looker Studio; đào tạo đội ngũ ứng dụng AI hỗ trợ biên tập bài viết chuyên môn giúp nâng cao hiệu suất và tối ưu quỹ lương.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-highlight" style="display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div class="card-title">
+                                <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></span>
+                                <span>Bảng Chỉ Số Hiệu Quả Thực Tế (KNA Cert)</span>
+                            </div>
+                            <div class="kpi-mini-grid">
+                                <div class="kpi-mini-box">
+                                    <div class="kpi-mini-val" style="color:#38bdf8;">~700 Khách/Tháng</div>
+                                    <div class="kpi-mini-lbl">Khách Tiềm Năng Giao Sales</div>
+                                </div>
+                                <div class="kpi-mini-box">
+                                    <div class="kpi-mini-val">90% Đúng Nhu Cầu</div>
+                                    <div class="kpi-mini-lbl">Tỷ Lệ Data Đạt Chuẩn Thực Tế</div>
+                                </div>
+                                <div class="kpi-mini-box">
+                                    <div class="kpi-mini-val" style="color:#fbbf24;">350 – 400Tr</div>
+                                    <div class="kpi-mini-lbl">Ngân Sách Quản Trị / Tháng</div>
+                                </div>
+                                <div class="kpi-mini-box">
+                                    <div class="kpi-mini-val" style="color:#e2e8f0;">15% – 18%</div>
+                                    <div class="kpi-mini-lbl">Chi Phí / Doanh Thu (40–50 HĐ Mới/Th, ROAS 5.5x–6.5x)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Visual Conversion Quality Bar -->
+                        <div class="ui-mockup">
+                            <div class="ui-mockup-head">
+                                <span>Tỷ trọng chất lượng Lead B2B sau chuẩn hóa phễu lọc</span>
+                                <span style="color:#34d399;">90% Đạt chuẩn nhu cầu</span>
+                            </div>
+                            <div style="background:#1e293b; height:18px; border-radius:9px; overflow:hidden; display:flex; margin:6px 0;">
+                                <div style="width:90%; background:linear-gradient(90deg, #0284c7, #10b981); display:flex; align-items:center; padding-left:10px; font-size:0.65rem; font-weight:800; color:#fff;">90% Doanh nghiệp đúng nhu cầu làm chứng nhận / đào tạo</div>
+                                <div style="width:10%; background:#334155;"></div>
+                            </div>
+                            <div style="font-size:0.68rem; color:#94a3b8;">Giảm thiểu tối đa tệp khách xin tài liệu miễn phí; tăng tốc độ tiếp cận cấp quản lý &amp; chủ nhà máy qua chuỗi Hội thảo/Webinar.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout-strip">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <div><strong>Tác động kinh doanh cốt lõi:</strong> Tháo gỡ nút thắt đo lường giúp hạ chi phí mỗi khách tiềm năng từ 1,29Tr xuống 450K – 550K; mở rộng tổng ngân sách lên 350 – 400Tr/tháng, cung cấp ổn định ~700 khách tiềm năng đạt chuẩn/tháng và đóng góp 40 – 50 hợp đồng B2B mới/tháng (chi phí/doanh thu 15% – 18%, doanh thu mang về gấp 5.5x – 6.5x chi phí tiếp thị).</div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
+                <div>05 / 09 • Case Study 01: MQL-to-SQL Alignment &amp; Impact (KNA Cert)</div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 06 ================= -->
+        <!-- ================= SLIDE 06: CASE STUDY 2 (LAPVIP PART 1) ================= -->
+        <section class="slide" id="slide-6">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Case Study 02 • Chuỗi Bán Lẻ B2C Đa Chi Nhánh</span>
+                    <div class="slide-title">LAPVIP (LPL VIỆT NAM): Mở Rộng 1 ➔ 3 Chi Nhánh &amp; Giữ Doanh Số 5–6 Tỷ/Tháng</div>
+                    <div class="slide-subtitle">10/2019 – 08/2024 (Gần 5 Năm) • Chuỗi Laptop Doanh Nhân &amp; Đồ Họa Cao Cấp (ThinkPad, Dell XPS, Surface, MacBook) • Bổ nhiệm: Chuyên viên ➔ Quản Lý Marketing</div>
+                </div>
+                <div class="slide-number-tag">06 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="grid-2" style="flex:1;">
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg></span>
+                            <span>Quá Trình Thăng Tiến &amp; Bài Toán Chuỗi</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Bổ nhiệm nội bộ &amp; Quản trị đội ngũ:</strong> Thăng tiến lên vị trí Quản lý Marketing sau hơn 2 năm làm việc hiệu quả; trực tiếp định hướng chiến lược và điều hành đội ngũ <strong>4 nhân sự (02 Nội dung, 01 Thiết kế, 01 Quay dựng truyền thông)</strong>.</li>
+                            <li><strong>Ngân sách quản trị chuỗi:</strong> Quản lý ngân sách tiếp thị <strong>~300 triệu VNĐ/tháng</strong> phân bổ đa kênh, tập trung bám sát mục tiêu tăng trưởng doanh thu và mở rộng hệ thống showroom tại Hà Nội &amp; TP.HCM.</li>
+                            <li><strong>Insight Khách Laptop Cao Cấp:</strong> Ở phân khúc máy 20 – 60 triệu, khách sợ nhất <em>mua phải hàng dựng, máy sửa chữa và bảo hành đùn đẩy</em>; rất ít khi chốt online nếu chưa được test máy tận tay.</li>
+                            <li><strong>Định vị thương hiệu:</strong> Máy chuẩn nguyên bản (Zin 100%), Trải nghiệm trực tiếp tại showroom trung tâm, Tư vấn đúng cấu hình theo từng chuyên ngành và hậu mãi tận tâm.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-highlight">
+                        <div class="card-title">
+                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
+                            <span>Chiến Lược Tiếp Thị Điểm Bán &amp; Mùa Vụ</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Chiến dịch mở rộng 1 ➔ 3 chi nhánh:</strong> Xây dựng và thực thi kế hoạch truyền thông khai trương mở rộng từ <strong>1 cửa hàng lên 3 showroom</strong> tại Hà Nội &amp; TP.HCM, kết hợp quảng cáo đa kênh khoanh vùng địa lý bán kính quanh từng điểm bán.</li>
+                            <li><strong>Điều tiết ngân sách bám sát tồn kho:</strong> Thiết lập cơ chế phối hợp hàng ngày cùng Quản lý 3 chi nhánh để nắm sát lượng máy tồn kho và mã máy khách hỏi nhiều; chủ động điều chuyển ngân sách quảng cáo tức thời để đẩy nhanh vòng quay vốn.</li>
+                            <li><strong>Kích cầu cao điểm mùa vụ:</strong> Điều phối đội ngũ sản xuất video trải nghiệm máy thực tế và ấn phẩm truyền thông kích cầu mạnh mẽ các dịp cao điểm <strong>Back-to-School (Tựu trường), Black Friday &amp; Lễ Tết</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="metric-banner">
+                    <div class="metric-box">
+                        <div class="metric-val">5 – 6 Tỷ / Tháng</div>
+                        <div class="metric-lbl">Doanh Thu Chuỗi Duy Trì</div>
+                        <div class="metric-sub">3 Showroom HN &amp; TP.HCM</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">5.0% – 5.8%</div>
+                        <div class="metric-lbl">Chi Phí Quảng Cáo / Doanh Thu</div>
+                        <div class="metric-sub">Ngân sách tiếp thị ~300Tr/tháng</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">9x – 11x</div>
+                        <div class="metric-lbl">Doanh Thu / Chi Phí Quảng Cáo</div>
+                        <div class="metric-sub">Paid Ads đóng góp 50%–55% doanh số</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">22 – 28 Triệu</div>
+                        <div class="metric-lbl">Giá Trị Đơn Hàng Trung Bình</div>
+                        <div class="metric-sub">ThinkPad, XPS, Surface, Mac</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
+                <div>06 / 09 • Case Study 02: Multi-Store Retail Expansion (Lapvip)</div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 07 ================= -->
+        <!-- ================= SLIDE 07: CASE STUDY 2 (LAPVIP PART 2 + SEO CHART) ================= -->
+        <section class="slide" id="slide-7">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Case Study 02 • Chuỗi Bán Lẻ B2C (Tiếp Theo)</span>
+                    <div class="slide-title">LAPVIP: Đẩy SEO Từ 0 ➔ 25.000+ Traffic/Tháng (Đỉnh 27.1K) &amp; Quản Lý Media</div>
+                    <div class="slide-subtitle">Xây dựng tài sản Organic Traffic bền vững giảm phụ thuộc quảng cáo và chuẩn hóa nội dung bán hàng</div>
+                </div>
+                <div class="slide-number-tag">07 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="grid-2-wide-right" style="flex:1;">
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>
+                            <span>Chiến Lược SEO Bền Vững &amp; Quản Lý Media</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li><strong>Định hướng quy hoạch kiến trúc website:</strong> Nghiên cứu bộ từ khóa mua hàng thực tế và quy hoạch cấu trúc website theo nhu cầu mua thực, tối ưu luồng chuyển đổi từ tìm kiếm sang điểm bán.</li>
+                            <li><strong>Đào tạo nhóm Nội dung (Content):</strong> Đào tạo và hướng dẫn nhân sự xây dựng hệ thống tuyến bài tư vấn chuyên sâu theo 4 tệp nhu cầu (<em>Sinh viên, Văn phòng, Đồ họa, Gaming</em>), đưa hàng loạt từ khóa chủ lực lên Top Google.</li>
+                            <li><strong>Điều phối quay dựng video showroom:</strong> Phân công tiến độ quay dựng video trải nghiệm và đánh giá máy thực tế tại showroom, sản xuất ấn phẩm khuyến mại kích cầu bán hàng.</li>
+                            <li><strong>Kiểm duyệt chất lượng &amp; Đánh giá KPI:</strong> Trực tiếp nghiệm thu chất lượng bài viết, hình ảnh, video và đánh giá KPI định kỳ cho đội ngũ <strong>4 nhân sự</strong> (02 Content, 01 Thiết kế, 01 Media).</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-highlight" style="display:flex; flex-direction:column; justify-content:space-between;">
+                        <div class="card-title" style="margin-bottom:4px;">
+                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg></span>
+                            <span>Biểu Đồ Tăng Trưởng SEO Website: 0 ➔ 27.100+ Traffic/Tháng</span>
+                        </div>
+
+                        <!-- Embedded SVG Growth Chart -->
+                        <div style="background:#09101d; border:1px solid var(--border); border-radius:8px; padding:12px 14px;">
+                            <svg viewBox="0 0 460 165" style="width:100%; height:auto; display:block;">
+                                <defs>
+                                    <linearGradient id="seoArea" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.42"/>
+                                        <stop offset="100%" stop-color="#0284c7" stop-opacity="0.02"/>
+                                    </linearGradient>
+                                </defs>
+                                <line x1="48" y1="22" x2="435" y2="22" stroke="#1e293b" stroke-dasharray="4,4"/>
+                                <text x="8" y="26" font-size="11" fill="#38bdf8" font-weight="700">27.100</text>
+                                <line x1="48" y1="68" x2="435" y2="68" stroke="#1e293b" stroke-dasharray="4,4"/>
+                                <text x="8" y="72" font-size="11" fill="#94a3b8">15.000</text>
+                                <line x1="48" y1="114" x2="435" y2="114" stroke="#1e293b" stroke-dasharray="4,4"/>
+                                <text x="8" y="118" font-size="11" fill="#94a3b8">5.000</text>
+                                <line x1="48" y1="138" x2="435" y2="138" stroke="#334155"/>
+                                <text x="28" y="142" font-size="11" fill="#94a3b8">0</text>
+
+                                <path d="M 55 138 Q 135 134 190 112 T 315 62 T 425 22 L 425 138 L 55 138 Z" fill="url(#seoArea)"/>
+                                <path d="M 55 138 Q 135 134 190 112 T 315 62 T 425 22" fill="none" stroke="#38bdf8" stroke-width="3.5"/>
+
+                                <circle cx="55" cy="138" r="4.5" fill="#0284c7" stroke="#fff" stroke-width="1.5"/>
+                                <circle cx="190" cy="112" r="4.5" fill="#0284c7" stroke="#fff" stroke-width="1.5"/>
+                                <circle cx="315" cy="62" r="4.5" fill="#0284c7" stroke="#fff" stroke-width="1.5"/>
+                                <circle cx="425" cy="22" r="6" fill="#10b981" stroke="#fff" stroke-width="2"/>
+
+                                <text x="48" y="157" font-size="10" fill="#94a3b8">Khởi tạo cấu trúc</text>
+                                <text x="155" y="157" font-size="10" fill="#94a3b8">Tuyến bài tư vấn</text>
+                                <text x="255" y="157" font-size="10" fill="#94a3b8">Top từ khóa mua hàng</text>
+                                <text x="372" y="157" font-size="10.5" fill="#34d399" font-weight="800">27.1K Traffic/th</text>
+                            </svg>
+                        </div>
+
+                        <div class="pill-group" style="margin-top:8px;">
+                            <span class="tool-pill">Tệp Sinh Viên</span>
+                            <span class="tool-pill">Tệp Văn Phòng</span>
+                            <span class="tool-pill">Tệp Đồ Họa</span>
+                            <span class="tool-pill">Tệp Gaming</span>
+                            <span class="tool-pill">Video Trải Nghiệm Showroom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout-strip">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#34d399"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                    <div><strong>Giá trị dài hạn cho chuỗi bán lẻ:</strong> Nền tảng SEO vượt 25.000+ traffic/tháng (đạt đỉnh 27.1K/tháng) kết hợp kho video review thực tế giúp mang lại <strong>25% – 30% tổng doanh thu toàn chuỗi mà không mất chi phí quảng cáo</strong>, kéo tỷ lệ chi phí quảng cáo/doanh thu toàn chuỗi về mức <strong>5.0% – 5.8%</strong>.</div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
+                <div>07 / 09 • Case Study 02: Technical SEO &amp; Media Leadership (Lapvip)</div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 08 ================= -->
+        <!-- ================= SLIDE 08: TEAM OPS ON LARK & LARK BASE ================= -->
+        <section class="slide" id="slide-8">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Quản Trị Đội Ngũ &amp; Quy Trình Phối Hợp</span>
+                    <div class="slide-title">Đưa Lark &amp; Lark Base Vào Quản Lý Giao Việc Đội Ngũ 5 Nhân Sự</div>
+                    <div class="slide-subtitle">Số hóa toàn diện quy trình giao việc, kiểm duyệt ấn phẩm và đo lường tiến độ theo chuẩn SOP trên nền tảng Lark Base &amp; Lark Suite</div>
+                </div>
+                <div class="slide-number-tag">08 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="grid-3" style="flex:1;">
+                    <!-- Col 1: 5-Person Org -->
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+                            <span>Quản Lý 5 Nhân Sự Tại KNA</span>
+                        </div>
+                        <p class="card-text" style="font-size:0.77rem; margin-bottom:8px;">
+                            Chuẩn hóa cơ cấu phòng ban và phân nhiệm theo ma trận năng lực chuyên môn (RACI):
+                        </p>
+                        <div class="ui-mockup" style="margin-top:0;">
+                            <div class="ui-row"><strong style="color:#fff;">Paid Ads</strong><span>01 NS</span><span class="status-dot status-blue">CPL &amp; Lead</span></div>
+                            <div class="ui-row"><strong style="color:#fff;">SEO &amp; GEO</strong><span>01 NS</span><span class="status-dot status-green">Top &amp; Traffic</span></div>
+                            <div class="ui-row"><strong style="color:#fff;">Content</strong><span>02 NS</span><span class="status-dot status-blue">Bài &amp; Phễu</span></div>
+                            <div class="ui-row"><strong style="color:#fff;">Thiết Kế</strong><span>01 NS</span><span class="status-dot status-amber">Banner/Event</span></div>
+                        </div>
+                        <p class="card-text" style="font-size:0.72rem; color:var(--primary-light); margin-top:8px;">
+                            * Hệ thống đo lường dữ liệu, tiêu chuẩn Website &amp; trang đích chuyển đổi do tôi trực tiếp thiết lập khung chuẩn và đồng hành tháo gỡ cùng đội ngũ.
+                        </p>
+                    </div>
+
+                    <!-- Col 2: Lark & Lark Base Coordination -->
+                    <div class="card card-highlight">
+                        <div class="card-title">
+                            <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></span>
+                            <span>Giao Việc &amp; Phối Hợp Trên Lark Base</span>
+                        </div>
+                        <p class="card-text" style="font-size:0.77rem;">
+                            Đưa <strong>Lark</strong> vào vận hành: giao việc trực tiếp trên Lark và để các nhân sự phối hợp công việc với nhau ngay trên <strong>Lark Base</strong>.
+                        </p>
+                        <div class="ui-mockup">
+                            <div class="ui-mockup-head">
+                                <span>Lark Base • Tiến Độ &amp; Ghi Nhận Việc</span>
+                                <span style="color:#34d399;">● Đang vận hành</span>
+                            </div>
+                            <div class="ui-row"><span>Trang đích ISO</span><span>Ads/CRO</span><span class="status-dot status-green">Hoàn thành</span></div>
+                            <div class="ui-row"><span>Chuỗi bài ESG/CSR</span><span>Content</span><span class="status-dot status-blue">Đang làm</span></div>
+                            <div class="ui-row"><span>Ấn phẩm Webinar</span><span>Thiết kế</span><span class="status-dot status-green">Đúng hạn</span></div>
+                            <div class="ui-row"><span>Bộ từ khóa chủ lực</span><span>SEO</span><span class="status-dot status-amber">Rà soát tuần</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Col 3: Operational Outcomes on Lark -->
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box amber"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                            <span>Hiệu Quả Kiểm Soát Thực Tế</span>
+                        </div>
+                        <p class="card-text" style="font-size:0.77rem;">
+                            Chuyển toàn bộ đầu việc ra <strong>Lark</strong> giúp quản lý nắm bắt tiến độ tập trung, rõ người – rõ hạn hoàn thành.
+                        </p>
+                        <div class="kpi-mini-grid">
+                            <div class="kpi-mini-box">
+                                <div class="kpi-mini-val" style="color:#38bdf8; font-size:0.9rem;">Tập Trung</div>
+                                <div class="kpi-mini-lbl">Thay SharePoint &amp; Sheet</div>
+                            </div>
+                            <div class="kpi-mini-box">
+                                <div class="kpi-mini-val" style="font-size:0.9rem;">100% Đúng Hạn</div>
+                                <div class="kpi-mini-lbl">Kiểm Soát Tiến Độ Tự Động</div>
+                            </div>
+                            <div class="kpi-mini-box">
+                                <div class="kpi-mini-val" style="color:#fbbf24; font-size:0.9rem;">5 Nhân Sự</div>
+                                <div class="kpi-mini-lbl">Phối Hợp Trên Lark Base</div>
+                            </div>
+                            <div class="kpi-mini-box">
+                                <div class="kpi-mini-val" style="color:#e2e8f0; font-size:0.9rem;">Rõ Kết Quả</div>
+                                <div class="kpi-mini-lbl">Ghi Nhận Đầu Ra Công Việc</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout-strip">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#38bdf8"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12z"/></svg>
+                    <div><strong>AI Agent &amp; Tự động hóa nâng cao năng suất:</strong> Đào tạo đội ngũ ứng dụng AI (Claude, OpenAI) biên tập nội dung chuyên môn, kết hợp triển khai tự động hóa xuất bản bài viết từ Lark Base lên Website và Bot tự động cảnh báo từ khóa lãng phí quảng cáo hàng ngày — giúp tăng mạnh hiệu suất và tối ưu quỹ lương bộ phận.</div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing</div>
+                <div>08 / 09 • Team Management &amp; Workflow on Lark / Lark Base</div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 09 ================= -->
+        <!-- ================= SLIDE 09: EDUCATION & CONTACT ================= -->
+        <section class="slide" id="slide-9">
+            <div class="slide-header">
+                <div>
+                    <span class="slide-badge">Học Vấn, Đào Tạo &amp; Thông Tin Liên Hệ</span>
+                    <div class="slide-title">Nền Tảng Chuyên Môn &amp; Kết Nối Trao Đổi Trực Tiếp</div>
+                    <div class="slide-subtitle">Sẵn sàng đồng hành cùng mục tiêu tăng trưởng doanh thu và chuẩn hóa bộ phận Marketing của Quý Doanh nghiệp</div>
+                </div>
+                <div class="slide-number-tag">09 / 09</div>
+            </div>
+
+            <div class="slide-body">
+                <div class="grid-2" style="flex:1;">
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></span>
+                            <span>Học Vấn &amp; Chứng Nhận Đào Tạo</span>
+                        </div>
+                        <ul class="bullet-list" style="gap:12px;">
+                            <li>
+                                <strong style="color:#fff;">GIGAN TRAINING CENTER — Chứng nhận hoàn thành khóa đào tạo chuyên môn</strong><br>
+                                • <strong>Project Management (12/2023):</strong> Lập kế hoạch dự án, phân bổ nguồn lực &amp; quản trị hiệu suất nhân sự.<br>
+                                • <strong>Authentic Branding (11/2023):</strong> Tư duy định vị thị trường, nhất quán thông điệp &amp; phát triển thương hiệu.
+                            </li>
+                            <li>
+                                <strong style="color:#fff;">CAO ĐẲNG FPT POLYTECHNIC (2016 – 2019)</strong><br>
+                                Chuyên ngành: <strong>Ứng dụng Phần Mềm</strong>.<br>
+                                Nền tảng lập trình và tư duy hệ thống — tạo lợi thế trong việc số hóa quy trình làm việc, thẩm định đối tác kỹ thuật và ứng dụng công nghệ/AI nâng cao năng suất phòng Marketing.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-highlight" style="display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div class="card-title">
+                                <span class="icon-box green"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                                <span>Thông Tin Liên Hệ &amp; Tài Liệu Đính Kèm</span>
+                            </div>
+                            <ul class="bullet-list" style="gap:9px; font-size:0.84rem;">
+                                <li><strong>Họ và tên:</strong> Nguyễn Văn Vượng</li>
+                                <li><strong>Vị trí ứng tuyển:</strong> Trưởng Phòng Marketing</li>
+                                <li><strong>Điện thoại / Zalo:</strong> <a href="tel:0868772540" style="color:#38bdf8; font-weight:800; text-decoration:none;">0868.772.540</a></li>
+                                <li><strong>Email:</strong> <a href="mailto:vuongnv.upgrade@gmail.com" style="color:#38bdf8; font-weight:700; text-decoration:none;">vuongnv.upgrade@gmail.com</a></li>
+                                <li><strong>Địa chỉ:</strong> Định Công, Hoàng Mai, Hà Nội</li>
+                            </ul>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;">
+                            <a href="index.html" style="background:var(--primary); color:#fff; text-decoration:none; padding:10px 12px; border-radius:7px; font-size:0.78rem; font-weight:800; text-align:center;">
+                                Mở Web Portfolio Tương Tác ➔
+                            </a>
+                            <a href="assets/CV_Nguyen_Van_Vuong_Truong_Phong_Marketing_Quan_Tri.pdf" download style="background:rgba(255,255,255,0.08); border:1px solid var(--border); color:#fff; text-decoration:none; padding:10px 12px; border-radius:7px; font-size:0.78rem; font-weight:800; text-align:center;">
+                                Tải Bản CV Quản Trị (PDF)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout-strip" style="justify-content:center; text-align:center; border-left-width:1px; border-color:rgba(56, 189, 248, 0.35);">
+                    <div style="font-weight:700; color:#fff;">
+                        Trân trọng cảm ơn Quý Ban Giám Đốc đã dành thời gian xem xét Hồ sơ Năng lực — Rất mong có cơ hội trao đổi trực tiếp!
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div>Nguyễn Văn Vượng — Trưởng Phòng Marketing • 0868.772.540</div>
+                <div>09 / 09 • Education, Certifications &amp; Contact</div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        (function () {
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const counter = document.getElementById('slideCounter');
+            const prevBtn = document.getElementById('prevSlideBtn');
+            const nextBtn = document.getElementById('nextSlideBtn');
+            let currentIdx = 0;
+
+            function updateCounter(idx) {
+                currentIdx = Math.max(0, Math.min(slides.length - 1, idx));
+                const num = String(currentIdx + 1).padStart(2, '0');
+                const total = String(slides.length).padStart(2, '0');
+                if (counter) counter.textContent = num + ' / ' + total;
+            }
+
+            function goToSlide(idx) {
+                const target = Math.max(0, Math.min(slides.length - 1, idx));
+                slides[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                updateCounter(target);
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIdx - 1));
+            if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIdx + 1));
+
+            window.addEventListener('scroll', () => {
+                const mid = window.scrollY + window.innerHeight * 0.35;
+                slides.forEach((s, i) => {
+                    if (mid >= s.offsetTop && mid < s.offsetTop + s.offsetHeight + 32) {
+                        updateCounter(i);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+                    e.preventDefault();
+                    goToSlide(currentIdx + 1);
+                } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                    e.preventDefault();
+                    goToSlide(currentIdx - 1);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Ignore original unblurred sensitive images
+assets/*orig.png
+*-orig.png
+*.orig.*
+
+# OS and temporary files
+.DS_Store
+Thumbs.db
+*.tmp
