@@ -1,5 +1,5 @@
 /**
- * PORTFOLIO NGUYỄN VĂN VƯỢNG - TRƯỞNG PHÒNG MARKETING (SME)
+ * PORTFOLIO NGUYỄN VĂN VƯỢNG - MARKETING MANAGER
  * Interactive Script: Tab Switcher, Gallery Filter, Lightbox, Image Fallback & ScrollSpy
  */
 
