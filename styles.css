@@ -1410,7 +1410,7 @@ a:hover {
         padding-bottom: 0;
     }
 
-    .skills-grid, .case-body, .gallery-grid, .philosophy-grid, .footer-main {
+    .company-overview-grid, .skills-grid, .case-body, .gallery-grid, .philosophy-grid, .footer-main {
         grid-template-columns: 1fr;
         gap: 24px;
     }
@@ -2002,12 +2002,12 @@ a:hover {
 
 .company-pnl-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: var(--radius-sm);
-    padding: 12px 8px;
+    padding: 14px;
     margin-bottom: 0;
     text-align: center;
 }
@@ -2015,13 +2015,27 @@ a:hover {
 .company-pnl-box {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    justify-content: center;
+    gap: 5px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease;
+}
+
+.company-pnl-box:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
 }
 
 .company-pnl-val {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--primary-dark);
+    line-height: 1.2;
 }
 
 .company-card:last-child .company-pnl-val {
@@ -2029,10 +2043,12 @@ a:hover {
 }
 
 .company-pnl-lbl {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.25px;
     color: #64748b;
+    line-height: 1.35;
 }
 
 .company-desc {
