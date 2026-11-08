@@ -2414,32 +2414,91 @@ a:hover {
 .project-proof-row {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 8px;
-    margin-top: 10px;
+    margin-top: 16px;
+    padding: 12px 14px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-left: 3px solid #0284c7;
+    border-radius: 8px;
+}
+
+.proof-row-label {
+    width: 100%;
+    font-size: 0.69rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #0369a1;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.proof-row-label::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #0284c7;
 }
 
 .proj-proof-btn {
-    background: #f0f9ff;
-    border: 1px solid #bae6fd;
-    color: #0369a1;
-    border-radius: 6px;
-    padding: 5px 10px;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    border: 1px solid #0369a1;
+    color: #ffffff !important;
+    border-radius: 7px;
+    padding: 8px 14px;
     font-family: inherit;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    transition: var(--transition);
+    gap: 6px;
+    box-shadow: 0 3px 8px rgba(2, 132, 199, 0.28);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.35;
+    max-width: 100%;
+}
+
+.proj-proof-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    pointer-events: none;
+    stroke: currentColor;
+}
+
+.proj-proof-btn span {
+    pointer-events: none;
 }
 
 .proj-proof-btn:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #ffffff;
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    border-color: #075985;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(2, 132, 199, 0.38);
+}
+
+.proj-proof-btn.secondary {
+    background: #ffffff;
+    border: 1.5px solid #0284c7;
+    color: #0369a1 !important;
+    box-shadow: 0 2px 5px rgba(2, 132, 199, 0.12);
+}
+
+.proj-proof-btn.secondary:hover {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(2, 132, 199, 0.32);
 }
 
 .gallery-card-preview.real-shot {
