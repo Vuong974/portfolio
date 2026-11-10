@@ -90,16 +90,48 @@
 
         .project-block-label.ac { color: #0f766e; }
 
-        .proj-proof-btn {
+        .project-proof-row {
             background: #f0fdfa;
-            border-color: #99f6e4;
+            border: 1px solid #99f6e4;
+            border-left: 3px solid #0d9488;
+        }
+
+        .proof-row-label {
             color: #0f766e;
         }
 
+        .proof-row-label::before {
+            background: #0d9488;
+        }
+
+        .proj-proof-btn {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            border: 1px solid #0f766e;
+            color: #ffffff !important;
+            box-shadow: 0 3px 8px rgba(13, 148, 136, 0.28);
+        }
+
         .proj-proof-btn:hover {
+            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+            border-color: #115e59;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(13, 148, 136, 0.38);
+        }
+
+        .proj-proof-btn.secondary {
+            background: #ffffff;
+            border: 1.5px solid #0d9488;
+            color: #0f766e !important;
+            box-shadow: 0 2px 5px rgba(13, 148, 136, 0.12);
+        }
+
+        .proj-proof-btn.secondary:hover {
             background: #0d9488;
             border-color: #0d9488;
-            color: #ffffff;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(13, 148, 136, 0.32);
         }
 
         .tool-stack-row {
@@ -181,10 +213,6 @@
 
                     <div class="hero-contact-inline">
                         <div class="hero-contact-item">
-                            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-                            <span>Năm sinh: 1998</span>
-                        </div>
-                        <div class="hero-contact-item">
                             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                             <a href="tel:0868772540" style="color:inherit; text-decoration:none;"><strong>0868.772.540</strong></a>
                             <a href="https://zalo.me/0868772540" target="_blank" class="zalo-pill">Zalo ↗</a>
@@ -197,22 +225,6 @@
                             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                             <span>Định Công, Hoàng Mai, Hà Nội</span>
                         </div>
-                    </div>
-
-                    <div class="hero-cta-btns" style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
-                        <a href="deck.html" target="_blank" style="display:inline-flex; align-items:center; gap:7px; background:#0d9488; color:#fff; text-decoration:none; padding:10px 18px; border-radius:6px; font-weight:700; font-size:0.88rem; box-shadow:0 2px 10px rgba(13,148,136,0.4);">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
-                            <span>Xem Slide Case Study (6 Trang)</span>
-                            <span style="font-size:0.75rem;">↗</span>
-                        </a>
-                        <a href="../assets/CV_Nguyen_Van_Vuong_Chuyen_Vien_Digital_Marketing.pdf" download style="display:inline-flex; align-items:center; gap:7px; background:#f0fdfa; border:1.5px solid #2dd4bf; color:#0f766e; text-decoration:none; padding:10px 18px; border-radius:6px; font-weight:700; font-size:0.88rem;">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                            <span>Tải CV Chuyên Viên (PDF)</span>
-                        </a>
-                        <a href="../assets/Portfolio_Nguyen_Van_Vuong_Chuyen_Vien_Digital_Marketing.pdf" download style="display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); color:#e2e8f0; text-decoration:none; padding:10px 16px; border-radius:6px; font-weight:700; font-size:0.86rem;">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                            <span>Tải Portfolio PDF</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -404,16 +416,6 @@
                             <div class="company-pnl-lbl">Tự Chủ Web &amp; Automation</div>
                         </div>
                     </div>
-                    <div class="company-desc">
-                        <div class="company-scope">
-                            <strong>Sản phẩm / Dịch vụ:</strong> Đào tạo &amp; Chứng nhận Tiêu chuẩn Quốc tế B2B cho nhà máy xuất khẩu (ISO, CSR, ESG, WRAP, BSCI...).
-                        </div>
-                        <ul class="company-tasks-list">
-                            <li><strong>Trực tiếp tối ưu Google Ads &amp; Meta Ads:</strong> Cài đặt lại GTM/GA4 cùng Enhanced &amp; Offline Conversion Tracking đẩy dữ liệu khách thật từ Sales về Google Ads; hạ CPL thực tế từ ~1–1,29 triệu xuống 500.000 – 600.000đ/lead, nâng sản lượng Paid Ads từ 100–150 lên 400–500 lead/tháng (tổng đa kênh 600–700 lead/tháng, đóng góp 40–50 hợp đồng mới/tháng, CIR 15%–18%).</li>
-                            <li><strong>Triển khai phễu Hội thảo B2B &amp; Lead Magnet:</strong> Chạy chiến dịch thu hút 200–300 quản lý nhà máy/kỳ Webinar (CPL 80–120K) và dựng trang đích tài liệu Checklist mang về 200–250 doanh nghiệp/tháng đồng bộ tự động sang ERP.</li>
-                            <li><strong>Quản trị WordPress, SEO &amp; AI Automation:</strong> Tự tay chuyển đổi Website từ <em>service.knacert.com.vn</em> sang WordPress (<em>knacert.com.vn</em>) bảo toàn 100% thứ hạng SEO; viết Bot Telegram chặn từ khóa rác hàng ngày và luồng tự động đăng bài từ Lark Base lên WordPress (-75% thời gian).</li>
-                        </ul>
-                    </div>
                 </div>
 
                 <!-- THẺ CÔNG TY 2: LAPVIP -->
@@ -433,8 +435,8 @@
                     </div>
                     <div class="company-pnl-grid">
                         <div class="company-pnl-box">
-                            <div class="company-pnl-val">~250 – 300Tr</div>
-                            <div class="company-pnl-lbl">Ngân Sách Ads Trực Tiếp / Th</div>
+                            <div class="company-pnl-val">5 – 8 Tỷ</div>
+                            <div class="company-pnl-lbl">Doanh Số Chuỗi Duy Trì / Tháng</div>
                         </div>
                         <div class="company-pnl-box">
                             <div class="company-pnl-val">5.0% – 5.8%</div>
@@ -446,18 +448,8 @@
                         </div>
                         <div class="company-pnl-box">
                             <div class="company-pnl-val">25% – 30%</div>
-                            <div class="company-pnl-lbl">Doanh Số Chuỗi Từ Kênh SEO</div>
+                            <div class="company-pnl-lbl">Doanh Số Kênh SEO (0đ Ads)</div>
                         </div>
-                    </div>
-                    <div class="company-desc">
-                        <div class="company-scope">
-                            <strong>Sản phẩm / Dịch vụ:</strong> Chuỗi 3 cửa hàng bán lẻ Laptop Doanh nhân &amp; Đồ họa cao cấp tại Hà Nội &amp; TP.HCM (AOV 22 – 28 triệu/máy).
-                        </div>
-                        <ul class="company-tasks-list">
-                            <li><strong>Trực tiếp cầm tài khoản Google Ads &amp; Facebook Ads:</strong> Vận hành chiến dịch Search, Shopping, Performance Max và Facebook Ads (~250–300 triệu/tháng); duy trì tỷ lệ chi phí quảng cáo/doanh thu chỉ 5.0% – 5.8%, ROAS trực tiếp 9x – 11x, đóng góp 50% – 55% vào tổng doanh số 5 – 6 tỷ/tháng của toàn chuỗi.</li>
-                            <li><strong>Đẩy SEO tổng thể Website <em>lapvip.vn</em> từ con số 0:</strong> Quy hoạch cấu trúc danh mục Silo, xử lý Technical SEO (Canonical, Schema giá/tồn kho) và tối ưu nội dung sản phẩm đưa traffic tự nhiên vượt 25.000+ lượt/tháng (đỉnh 27.100+/tháng, 5.700+ từ khóa, Top 1–5 mã SKU chủ lực).</li>
-                            <li><strong>Bám sát tồn kho thực tế 3 cửa hàng:</strong> Phối hợp hàng ngày với bộ phận bán hàng bật/tắt nhóm quảng cáo linh hoạt theo mã máy sẵn kho và đẩy chiến dịch cao điểm Tựu trường, Lễ Tết.</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -524,11 +516,12 @@
                                 <div class="proj-metric-chip">Chất lượng: <strong>~90% đúng nhu cầu B2B (Đối soát cùng Sales)</strong></div>
                             </div>
                             <div class="project-proof-row">
+                                <div class="proof-row-label">Minh chứng thực tế (Bấm để xem):</div>
                                 <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/google-ads-kna-after.png" data-lightbox-caption="Báo cáo Google Ads KNA Cert sau khi trực tiếp tối ưu (Tháng 3/2026): Chi tiêu 325 Tr đ, mang lại 400 – 500 lead chất lượng cao đã đối soát cùng Sales, CPL tối ưu 500.000 – 600.000 đ">
-                                    🖼 Xem báo cáo sau tối ưu (325Tr • 400–500 Lead chuẩn)
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> <span>Xem báo cáo sau tối ưu (325Tr • 400–500 Lead chuẩn)</span>
                                 </button>
-                                <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/google-ads-kna-before.png" data-lightbox-caption="Báo cáo Google Ads KNA Cert trước khi tối ưu (Tháng 8/2024): Chi tiêu 103 Tr đ, chỉ đạt 100 – 150 lead/tháng, CPL ~1 – 1,29 Tr đ" style="background:#f8fafc; border-color:#cbd5e1; color:#334155; font-weight:600;">
-                                    🖼 Xem số liệu ban đầu (103Tr • CPL ~1–1,29Tr)
+                                <button type="button" class="proj-proof-btn secondary" data-lightbox-src="../assets/google-ads-kna-before.png" data-lightbox-caption="Báo cáo Google Ads KNA Cert trước khi tối ưu (Tháng 8/2024): Chi tiêu 103 Tr đ, chỉ đạt 100 – 150 lead/tháng, CPL ~1 – 1,29 Tr đ">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> <span>Xem số liệu ban đầu (103Tr • CPL ~1–1,29Tr)</span>
                                 </button>
                             </div>
                         </div>
@@ -559,15 +552,26 @@
                                     <span>
                                         • Trực tiếp lên camp và tối ưu hàng ngày <strong>Google Search, Google Shopping, Performance Max</strong> kết hợp <strong>Facebook Ads (Messaging, Conversion, Retargeting)</strong> bằng video trải nghiệm máy thực tế.<br>
                                         • Phân tách chiến dịch theo khu vực địa lý (kéo khách HN &amp; TP.HCM ghé trực tiếp cửa hàng đạt tỷ lệ chốt 70%–80%; luồng tư vấn video kiểm máy cho khách tỉnh).<br>
-                                        • Bám sát bảng tồn kho hàng ngày để bật/tắt nhóm quảng cáo theo mã SKU sẵn hàng và đẩy mạnh chiến dịch mùa Tựu trường, Lễ Tết.
+                                        • Bám sát bảng tồn kho hàng ngày để bật/tắt nhóm quảng cáo theo mã SKU sẵn hàng và đẩy mạnh chiến dịch mùa Tựu trường, Lễ Tết, giữ vững doanh số chuỗi 5 – 8 tỷ/tháng với chi phí quảng cáo chỉ 5.0% – 5.8% doanh thu.
                                     </span>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-metrics-row">
-                            <div class="proj-metric-chip">Tỷ lệ CIR: <strong>5.0% – 5.8% chi phí Ads / doanh thu</strong></div>
-                            <div class="proj-metric-chip">Hiệu suất trực tiếp: <strong>ROAS 9x – 11x (Đóng góp 50%–55% doanh số)</strong></div>
-                            <div class="proj-metric-chip">Quy mô doanh số chuỗi: <strong>5 – 6 Tỷ/tháng (~200–240 máy)</strong></div>
+                        <div>
+                            <div class="project-metrics-row">
+                                <div class="proj-metric-chip">Tỷ lệ CIR: <strong>5.0% – 5.8% chi phí Ads / doanh thu</strong></div>
+                                <div class="proj-metric-chip">Hiệu suất trực tiếp: <strong>ROAS 9x – 11x (Đóng góp 50%–55% doanh số)</strong></div>
+                                <div class="proj-metric-chip">Quy mô doanh số chuỗi: <strong>5 – 8 Tỷ/tháng (Đạt đỉnh cao điểm Tựu trường, Lễ Tết)</strong></div>
+                            </div>
+                            <div class="project-proof-row">
+                                <div class="proof-row-label">Minh chứng thực tế (Bấm để xem):</div>
+                                <a href="https://lapvip.vn/" target="_blank" rel="noopener" class="proj-proof-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Mở Web Lapvip (Hệ thống 3 Showroom) ↗</span>
+                                </a>
+                                <a href="https://www.facebook.com/lapvip.vn" target="_blank" rel="noopener" class="proj-proof-btn secondary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Xem Fanpage Lapvip ↗</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -604,8 +608,9 @@
                                 <div class="proj-metric-chip">Giá trị hợp đồng chuyển đổi: <strong>30 – 100 Triệu+</strong></div>
                             </div>
                             <div class="project-proof-row">
+                                <div class="proof-row-label">Minh chứng thực tế (Bấm để xem):</div>
                                 <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/lark-workspace-webinar.png" data-lightbox-caption="Bảng theo dõi dữ liệu 14 kỳ Webinar B2B thực tế trên Lark Base">
-                                    🖼 Xem bảng dữ liệu 14 kỳ Webinar B2B thực tế
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> <span>Xem bảng dữ liệu 14 kỳ Webinar B2B thực tế</span>
                                 </button>
                             </div>
                         </div>
@@ -648,14 +653,15 @@
                                 <div class="proj-metric-chip">Độ phủ: <strong>5.700+ Organic KW Top &amp; 151 trích dẫn AI Search</strong></div>
                             </div>
                             <div class="project-proof-row">
+                                <div class="proof-row-label">Minh chứng thực tế (Bấm để xem):</div>
                                 <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/seo-lapvip-gsc.png" data-lightbox-caption="Báo cáo Google Search Console lapvip.vn: Top 1–5 các dòng máy chủ lực (Razer Blade, Dell Precision, Samsung, Lenovo...)">
-                                    🖼 Xem thứ hạng từ khóa Google Search Console
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> <span>Xem thứ hạng từ khóa Google Search Console</span>
                                 </button>
-                                <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/seo-lapvip-semrush.png" data-lightbox-caption="Báo cáo Semrush lapvip.vn: Tăng trưởng Organic Traffic từ số 0 lên đỉnh ~27.1K/tháng, 5.700+ từ khóa tự nhiên và 151 lượt trích dẫn AI Search">
-                                    🖼 Xem biểu đồ tăng trưởng Semrush
+                                <button type="button" class="proj-proof-btn secondary" data-lightbox-src="../assets/seo-lapvip-semrush.png" data-lightbox-caption="Báo cáo Semrush lapvip.vn: Tăng trưởng Organic Traffic từ số 0 lên đỉnh ~27.1K/tháng, 5.700+ từ khóa tự nhiên và 151 lượt trích dẫn AI Search">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> <span>Xem biểu đồ tăng trưởng Semrush</span>
                                 </button>
-                                <a href="https://lapvip.vn/" target="_blank" rel="noopener" class="proj-proof-btn">
-                                    🌐 Mở Web lapvip.vn ↗
+                                <a href="https://lapvip.vn/" target="_blank" rel="noopener" class="proj-proof-btn secondary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> <span>Mở Web lapvip.vn ↗</span>
                                 </a>
                             </div>
                         </div>
@@ -698,15 +704,13 @@
                                 <div class="proj-metric-chip">Hiệu quả trang đích: <strong>Tối ưu tốc độ tải &amp; tăng tỷ lệ để lại Lead</strong></div>
                             </div>
                             <div class="project-proof-row">
+                                <div class="proof-row-label">Minh chứng thực tế (Bấm để xem):</div>
                                 <a href="https://knacert.com.vn/" target="_blank" rel="noopener" class="proj-proof-btn">
-                                    🌐 Mở Web Mới (knacert.com.vn) ↗
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> <span>Mở Web Mới (knacert.com.vn) ↗</span>
                                 </a>
-                                <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/kna-web-new.png" data-lightbox-caption="Giao diện Website chính thức knacert.com.vn sau khi trực tiếp chuyển đổi sang WordPress chuẩn SEO & CRO">
-                                    🖼 Xem ảnh Web WordPress Mới
-                                </button>
-                                <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/kna-web-old.png" data-lightbox-caption="Giao diện Website cũ tại service.knacert.com.vn trước khi chuyển đổi" style="background:#f8fafc; border-color:#cbd5e1; color:#334155; font-weight:600;">
-                                    🖼 Xem ảnh Web Cũ (Đối chiếu)
-                                </button>
+                                <a href="https://service.knacert.com.vn/" target="_blank" rel="noopener" class="proj-proof-btn secondary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> <span>Xem Web Cũ (service) ↗</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -785,8 +789,9 @@
                                 <div class="proj-metric-chip">Bảo vệ ngân sách: <strong>Ngăn lãng phí 10% – 15% chi phí Ads</strong></div>
                             </div>
                             <div class="project-proof-row">
+                                <div class="proof-row-label">Minh chứng thực tế (Bấm để xem):</div>
                                 <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/telegram-bot-negative-keywords.png" data-lightbox-caption="Giao diện Bot Telegram tự xây dựng: Tự động bắt các phiên CPC cao bất thường (150K–180K/click không chuyển đổi) và bấm chặn phủ định 1 chạm ngay trên điện thoại">
-                                    🖼 Xem giao diện Bot Telegram chặn từ khóa thực tế
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> <span>Xem giao diện Bot Telegram chặn từ khóa thực tế</span>
                                 </button>
                             </div>
                         </div>
@@ -830,8 +835,9 @@
                                 <div class="proj-metric-chip">Thực tế vận hành: <strong>386+ bài viết xuất bản tự động lên WordPress</strong></div>
                             </div>
                             <div class="project-proof-row">
-                                <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/lark-base-wordpress-cms.png" data-lightbox-caption="Bảng điều khiển 386+ bài viết trên Lark Base tích hợp nút bấm đẩy bài & chèn Internal Link tự động thẳng lên WordPress">
-                                    🖼 Xem bảng tự động xuất bản WordPress thực tế (386+ bài)
+                                <div class="proof-row-label">Minh chứng thực tế (Bấm để xem):</div>
+                                <button type="button" class="proj-proof-btn" data-lightbox-src="../assets/lark-base-wordpress-cms.png" data-lightbox-caption="Bảng điều khiển 386+ bài viết trên Lark Base tích hợp nút bấm đẩy bài &amp; chèn Internal Link tự động thẳng lên WordPress">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> <span>Xem bảng tự động xuất bản WordPress thực tế (386+ bài)</span>
                                 </button>
                             </div>
                         </div>
@@ -909,21 +915,7 @@
                 </div>
 
                 <div class="footer-contact-box">
-                    <div class="footer-contact-title">Thông Tin Liên Hệ &amp; Bộ Hồ Sơ Chuyên Viên</div>
-                    <div style="display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
-                        <a href="deck.html" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#0d9488; color:#fff; text-decoration:none; padding:7px 14px; border-radius:5px; font-weight:700; font-size:0.82rem;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
-                            <span>Xem Slide Case Study (6 Trang)</span> <span>↗</span>
-                        </a>
-                        <a href="../assets/CV_Nguyen_Van_Vuong_Chuyen_Vien_Digital_Marketing.pdf" download style="display:inline-flex; align-items:center; gap:6px; background:rgba(45,212,191,0.12); border:1px solid #2dd4bf; color:#2dd4bf; text-decoration:none; padding:7px 14px; border-radius:5px; font-weight:700; font-size:0.82rem;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                            <span>Tải CV Chuyên Viên (PDF)</span>
-                        </a>
-                        <a href="../assets/Portfolio_Nguyen_Van_Vuong_Chuyen_Vien_Digital_Marketing.pdf" download style="display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.06); border:1px solid #475569; color:#e2e8f0; text-decoration:none; padding:7px 14px; border-radius:5px; font-weight:700; font-size:0.82rem;">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                            <span>Tải Portfolio PDF</span>
-                        </a>
-                    </div>
+                    <div class="footer-contact-title">Thông Tin Liên Hệ</div>
                     <ul class="footer-contact-list">
                         <li>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="#2dd4bf"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
